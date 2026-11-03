@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¡Gracias por tu compra! · Lanzate</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .thanks { padding: 64px 0 96px; }
+    .thanks-box { max-width: 760px; margin: 0 auto; }
+    .thanks-icon { display: grid; place-items: center; width: 72px; height: 72px; margin: 0 auto 22px; border-radius: 22px; background: var(--lime); font-size: 34px; }
+    .thanks-box > h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; text-align: center; }
+    .thanks-box > .lead { margin: 14px auto 40px; text-align: center; }
+    .checklist { display: grid; gap: 14px; margin: 0 0 32px; padding: 0; list-style: none; }
+    .checklist li { display: flex; gap: 16px; padding: 22px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); }
+    .checklist .step-num { flex: none; margin: 0; }
+    .checklist h2 { font-size: 1.2rem; margin-bottom: 4px; }
+    .checklist p { color: var(--muted); font-size: 15px; }
+    .send-box { padding: 28px; border-radius: 24px; background: var(--ink); color: #fff; text-align: center; }
+    .send-box h2 { font-size: 1.5rem; }
+    .send-box p { margin: 8px 0 20px; color: #b9bcd6; }
+    .send-box .hero-ctas { justify-content: center; margin-top: 0; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i class="bi bi-rocket-takeoff-fill"></i></span>Lanzate</a>
+      <a class="btn btn-ghost btn-sm" href="index.html"><i class="bi bi-arrow-left"></i> Volver al sitio</a>
+    </div>
+  </header>
+
+  <main class="thanks">
+    <div class="wrap thanks-box">
+      <div class="thanks-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
+      <h1>¡Listo! Ya estamos en marcha.</h1>
+      <p class="lead">Recibimos tu pago<span data-plan-name></span>. Para arrancar tu landing necesitamos estos datos. Mandalos por WhatsApp o mail, como te quede más cómodo.</p>
+
+      <ol class="checklist">
+        <li><span class="step-num">1</span><div><h2>Tu negocio</h2><p>Nombre, rubro, una frase que lo describa, dirección y horarios.</p></div></li>
+        <li><span class="step-num">2</span><div><h2>Tu marca</h2><p>Logo (PNG o SVG) y, si tenés, tus colores. Si no tenés logo, armamos uno simple con tu nombre.</p></div></li>
+        <li><span class="step-num">3</span><div><h2>Fotos y servicios</h2><p>Entre 5 y 15 fotos, y la lista de servicios o productos con sus precios.</p></div></li>
+        <li><span class="step-num">4</span><div><h2>Contacto y redes</h2><p>WhatsApp, Instagram, mail y el dominio que te gustaría (por ejemplo, tunegocio.com.ar).</p></div></li>
+      </ol>
+
+      <div class="send-box">
+        <h2>Mandanos todo y empezamos</h2>
+        <p>Apenas los recibimos, empezamos a armar tu landing.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-lime btn-lg" href="#" data-send-wa><i class="bi bi-whatsapp"></i> Enviar por WhatsApp</a>
+          <a class="btn btn-outline-light btn-lg" href="#" data-send-mail><i class="bi bi-envelope"></i> Enviar por mail</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script>
+    (function () {
+      var site = window.SITE;
+      var id = new URLSearchParams(location.search).get("plan");
+      var plan = site.planes.filter(function (p) { return p.id === id; })[0];
+      var label = plan ? " del plan " + plan.nombre : "";
+      if (plan) document.querySelector("[data-plan-name]").textContent = label;
+      var body = "Hola, ya pagué" + label + ". Les paso mis datos:\n\n" +
+        "1. Negocio (nombre, rubro, frase, dirección, horarios):\n\n" +
+        "2. Marca (logo y colores):\n\n" +
+        "3. Servicios o productos con precios:\n\n" +
+        "4. WhatsApp, Instagram, mail y dominio deseado:\n";
+      document.querySelector("[data-send-wa]").href = "https://wa.me/" + site.whatsapp + "?text=" + encodeURIComponent(body);
+      document.querySelector("[data-send-mail]").href = "mailto:" + site.email + "?subject=" + encodeURIComponent("Datos para mi landing" + label) + "&body=" + encodeURIComponent(body + "\n(Adjunto logo y fotos)");
+    })();
+  </script>
+</body>
+</html>
