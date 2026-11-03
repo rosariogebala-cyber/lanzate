@@ -413,6 +413,40 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
   .hm-ctas { flex-direction: column; }
 }
 
+/* Rubros: carrusel a todo el ancho */
+.rubros { position: relative; z-index: 1; margin-top: 72px; padding: 0; border: 0; border-radius: 0; background: none; }
+.rubros > .wrap { margin-bottom: 28px; }
+.rubros-row {
+  overflow: hidden;
+  padding: 7px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.rubros-track { display: flex; width: max-content; animation: rubros-slide 60s linear infinite; }
+.rubros-row.is-reverse .rubros-track { animation-direction: reverse; animation-duration: 70s; }
+.rubros-row:hover .rubros-track, .rubros-row:focus-within .rubros-track { animation-play-state: paused; }
+.rubros .rubros-list { flex-wrap: nowrap; gap: 12px; margin: 0; padding-right: 12px; }
+.rubros .rubros-list a { padding: 14px 22px; background: var(--white); font-size: 16px; white-space: nowrap; box-shadow: 0 6px 18px -10px rgba(14, 17, 48, .25); }
+.rubros .rubros-list a i { font-size: 18px; }
+.rubros-row.is-reverse .rubros-list li:nth-child(3n + 1) a { background: var(--violet); border-color: var(--violet); color: #fff; }
+.rubros-row.is-reverse .rubros-list li:nth-child(3n + 1) a i { color: var(--lime); }
+.rubros-row:not(.is-reverse) .rubros-list li:nth-child(4n + 2) a { background: var(--lime); border-color: var(--lime); color: var(--ink); }
+.rubros-row:not(.is-reverse) .rubros-list li:nth-child(4n + 2) a i { color: var(--ink); }
+@keyframes rubros-slide { to { transform: translateX(-50%); } }
+@media (max-width: 600px) {
+  .rubros { margin-top: 56px; }
+  .rubros .rubros-list a { padding: 11px 16px; font-size: 14px; }
+  .rubros-track { animation-duration: 45s; }
+  .rubros-row.is-reverse .rubros-track { animation-duration: 52s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rubros-track { animation: none; width: auto; }
+  .rubros-row { -webkit-mask-image: none; mask-image: none; }
+  .rubros-row.is-reverse { display: none; }
+  .rubros .rubros-list { flex-wrap: wrap; justify-content: center; padding: 0 20px; }
+  .rubros .rubros-list[aria-hidden] { display: none; }
+}
+
 /* Menú: marca la sección en la que estás */
 .nav a:not(.btn) { position: relative; transition: color .25s ease; }
 .nav a:not(.btn)::after {
