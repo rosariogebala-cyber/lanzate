@@ -937,6 +937,7 @@ a { color: inherit; }
 .mix .stage {
   --rise: clamp(0, calc(var(--p, 0) * 5.5), 1);
   --launch: clamp(0, calc((var(--p, 0) - .78) * 5), 1);
+  --lift: calc(var(--launch) * 17svh);
   background: linear-gradient(180deg, #2a1f7a 0%, #7b4fd6 38%, #ef8fb5 72%, #ffcc9a 100%);
 }
 .mix .stage::after { display: none; }
@@ -960,7 +961,7 @@ a { color: inherit; }
 .mix .armado-sub { color: rgba(255, 255, 255, .85); }
 
 .mix .armado-phone {
-  transform: translateY(calc((1 - var(--rise)) * 72svh - var(--launch) * 6svh)) rotateX(calc((1 - var(--rise)) * 22deg));
+  transform: translateY(calc((1 - var(--rise)) * 72svh - var(--lift))) rotateX(calc((1 - var(--rise)) * 22deg));
 }
 /* Partes de la nave: el teléfono es el cuerpo */
 .ship-fin {
@@ -1019,20 +1020,24 @@ a { color: inherit; }
   animation: flicker .12s steps(2) infinite alternate;
 }
 .mix .altimeter { opacity: calc(var(--launch) * 3); }
+.mix .chip { translate: 0 calc(var(--lift) * -1); }
 
 @media (max-width: 900px) {
   .mix .armado-phone {
-    transform: translateY(calc((1 - var(--rise)) * 75svh - var(--launch) * 11svh)) rotateX(calc((1 - var(--rise)) * 22deg));
+    transform: translateY(calc((1 - var(--rise)) * 75svh - var(--lift))) rotateX(calc((1 - var(--rise)) * 22deg));
   }
+  .mix .stage { --lift: calc(var(--launch) * 10svh); }
+  .mix .chip { translate: none; }
   .mix .altimeter { top: 84px; right: 20px; }
   .mix .word { bottom: 12%; }
   .mix .armado-final { background: none; text-shadow: 0 2px 18px rgba(7, 8, 28, .8); }
 }
 @media (max-width: 900px) and (max-height: 700px) {
   .mix .armado-phone {
-    transform: translateY(calc((1 - var(--rise)) * 75svh - var(--launch) * 4svh)) rotateX(calc((1 - var(--rise)) * 22deg));
+    transform: translateY(calc((1 - var(--rise)) * 75svh - var(--lift))) rotateX(calc((1 - var(--rise)) * 22deg));
   }
   .mix .chip-live { display: none; }
+  .mix .stage { --lift: calc(var(--launch) * 3svh); }
 }
 
 @media (prefers-reduced-motion: reduce) {
