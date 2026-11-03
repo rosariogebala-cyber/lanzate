@@ -413,6 +413,57 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
   .hm-ctas { flex-direction: column; }
 }
 
+/* Cómo funciona: línea de tiempo con puntos */
+.steps { gap: 0; }
+.step, .step.is-in:hover { padding: 0 28px 0 0; border: 0; border-radius: 0; background: none; box-shadow: none; transform: none; }
+.step::before, .step::after {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 60px;
+  right: 8px;
+  height: 2px;
+}
+.step::before { background: radial-gradient(circle, rgba(90, 61, 242, .35) 1.5px, transparent 2px) 0 50% / 10px 4px repeat-x; }
+.step::after { background: linear-gradient(90deg, var(--violet), var(--violet-2, #8b74ff)); transform: scaleX(0); transform-origin: 0 50%; transition: transform .9s cubic-bezier(.6, 0, .2, 1) calc(var(--i, 0) * .35s + .35s); }
+.step.is-in::after, .step:not(.reveal)::after { transform: none; }
+.step:last-child::before, .step:last-child::after { display: none; }
+.step-num {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  background: var(--violet);
+  color: #fff;
+  font-size: 19px;
+  box-shadow: 0 0 0 7px var(--paper), 0 0 0 8px rgba(90, 61, 242, .25), 0 12px 24px -8px rgba(90, 61, 242, .7);
+}
+.step-num::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(90, 61, 242, .45);
+  opacity: 0;
+}
+.step.is-in .step-num::after { animation: step-ping 1.2s ease-out calc(var(--i, 0) * .35s + .2s) 1 both; }
+@keyframes step-ping { 0% { opacity: .9; transform: scale(.8); } 100% { opacity: 0; transform: scale(1.6); } }
+.step:nth-child(4) .step-num { background: var(--lime); color: var(--ink); box-shadow: 0 0 0 7px var(--paper), 0 0 0 8px rgba(160, 200, 30, .45), 0 12px 24px -8px rgba(150, 190, 20, .8); }
+.step h3 { font-size: 1.2rem; }
+.step-time { padding: 6px 12px; border-radius: 999px; background: var(--violet-soft); color: var(--violet); }
+.step-time i { color: var(--violet); }
+@media (max-width: 1080px) {
+  .steps { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
+  .step, .step.is-in:hover { padding: 0 0 34px 76px; min-height: 48px; }
+  .step:last-child { padding-bottom: 0; }
+  .step-num { position: absolute; left: 0; top: 0; margin: 0; }
+  .step::before, .step::after { top: 60px; bottom: 6px; left: 23px; right: auto; width: 2px; height: auto; }
+  .step::before { background: radial-gradient(circle, rgba(90, 61, 242, .35) 1.5px, transparent 2px) 50% 0 / 4px 10px repeat-y; }
+  .step::after { background: linear-gradient(180deg, var(--violet), var(--violet-2, #8b74ff)); transform: scaleY(0); transform-origin: 50% 0; }
+  .step h3 { padding-top: 10px; }
+}
+
 /* Rubros: carrusel a todo el ancho */
 .rubros { position: relative; z-index: 1; margin-top: 72px; padding: 0; border: 0; border-radius: 0; background: none; }
 .rubros > .wrap { margin-bottom: 28px; }
@@ -664,7 +715,7 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .final-rocket, .sparks i { animation: none; }
+  .final-rocket, .sparks i, .step.is-in .step-num::after { animation: none; }
   .final-ship { display: none; }
   .hm { height: auto; }
   .hm-stage { position: relative; }
