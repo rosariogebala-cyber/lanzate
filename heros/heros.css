@@ -1028,7 +1028,7 @@ a { color: inherit; }
   }
   .mix .stage { --lift: calc(var(--launch) * 10svh); }
   .mix .chip { translate: none; }
-  .mix .altimeter { top: 84px; right: 20px; }
+  .mix .altimeter { display: none; }
   .mix .word { bottom: 12%; }
   .mix .armado-copy { gap: 10px; }
   .mix .hx-eyebrow { gap: 6px; padding: 4px 10px; font-size: 10.5px; }
