@@ -1026,7 +1026,7 @@ a { color: inherit; }
   .mix .armado-phone {
     transform: translateY(calc((1 - var(--rise)) * 75svh - var(--lift))) rotateX(calc((1 - var(--rise)) * 22deg));
   }
-  .mix .stage { --lift: calc(var(--launch) * 10svh); }
+  .mix .stage { --lift: calc(var(--launch) * 17svh); }
   .mix .chip { translate: none; }
   .mix .altimeter { display: none; }
   .mix .word { bottom: 12%; }
@@ -1041,7 +1041,7 @@ a { color: inherit; }
     transform: translateY(calc((1 - var(--rise)) * 75svh - var(--lift))) rotateX(calc((1 - var(--rise)) * 22deg));
   }
   .mix .chip-live { display: none; }
-  .mix .stage { --lift: calc(var(--launch) * 3svh); }
+  .mix .stage { --lift: calc(var(--launch) * 15svh); }
 }
 
 @media (prefers-reduced-motion: reduce) {

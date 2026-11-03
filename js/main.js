@@ -44,10 +44,13 @@
   var header = document.querySelector("[data-header]");
   var waFloat = document.querySelector(".wa-float");
   var footer = document.querySelector(".site-footer");
+  var heroScroll = document.querySelector("[data-hero-scroll]");
   function onScroll() {
     header.classList.toggle("is-scrolled", window.scrollY > 8);
+    var inHero = heroScroll ? heroScroll.getBoundingClientRect().bottom > header.offsetHeight : false;
+    header.classList.toggle("is-hero", inHero);
     if (!waFloat) return;
-    waFloat.classList.toggle("is-visible", window.scrollY > 300);
+    waFloat.classList.toggle("is-visible", window.scrollY > 300 && !inHero);
     var lift = footer ? Math.max(0, window.innerHeight - footer.getBoundingClientRect().top) : 0;
     waFloat.style.setProperty("--wa-lift", lift + "px");
     waFloat.classList.toggle("is-docked", lift > 0);
@@ -188,25 +191,39 @@
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  /* Celulares del hero: leve inclinación siguiendo el mouse */
-  var visual = document.querySelector(".hero-visual");
-  if (visual && !calm && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    var hero = document.querySelector(".hero");
-    var frame = 0;
-    hero.addEventListener("pointermove", function (e) {
-      if (frame) return;
-      frame = requestAnimationFrame(function () {
-        frame = 0;
-        var r = visual.getBoundingClientRect();
-        var x = (e.clientX - (r.left + r.width / 2)) / window.innerWidth;
-        var y = (e.clientY - (r.top + r.height / 2)) / window.innerHeight;
-        visual.style.setProperty("--mx", Math.max(-1, Math.min(1, x * 2)).toFixed(3));
-        visual.style.setProperty("--my", Math.max(-1, Math.min(1, y * 2)).toFixed(3));
+  /* Hero: la landing se arma y despega según el scroll */
+  if (heroScroll) {
+    heroScroll.querySelectorAll("[data-hero-price]").forEach(function (el) {
+      var plan = plans.filter(function (p) { return p.id === el.getAttribute("data-hero-price"); })[0];
+      if (plan) el.textContent = price(plan.inicial);
+    });
+    var atEls = heroScroll.querySelectorAll("[data-at]");
+    var rangeEls = heroScroll.querySelectorAll("[data-range]");
+    var counterEls = heroScroll.querySelectorAll("[data-counter]");
+    var clamp01 = function (v) { return Math.max(0, Math.min(1, v)); };
+    var heroTick = false;
+    var updateHero = function () {
+      heroTick = false;
+      var total = heroScroll.offsetHeight - window.innerHeight;
+      var p = calm || total <= 0 ? 1 : clamp01(-heroScroll.getBoundingClientRect().top / total);
+      heroScroll.style.setProperty("--p", p.toFixed(4));
+      atEls.forEach(function (n) { n.classList.toggle("is-on", p >= parseFloat(n.getAttribute("data-at"))); });
+      rangeEls.forEach(function (n) {
+        var r = n.getAttribute("data-range").split(",");
+        n.classList.toggle("is-active", p >= parseFloat(r[0]) && p < parseFloat(r[1]));
       });
-    });
-    hero.addEventListener("pointerleave", function () {
-      visual.style.setProperty("--mx", 0);
-      visual.style.setProperty("--my", 0);
-    });
+      counterEls.forEach(function (n) {
+        var from = parseFloat(n.getAttribute("data-from") || 0);
+        n.textContent = Math.round(clamp01((p - from) / (1 - from)) * parseFloat(n.getAttribute("data-counter"))).toLocaleString("es-AR");
+      });
+    };
+    var queueHero = function () {
+      if (heroTick) return;
+      heroTick = true;
+      requestAnimationFrame(updateHero);
+    };
+    window.addEventListener("scroll", queueHero, { passive: true });
+    window.addEventListener("resize", queueHero);
+    updateHero();
   }
 })();

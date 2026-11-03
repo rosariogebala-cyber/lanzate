@@ -20,12 +20,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="preload" as="image" href="img/ejemplos/barberia-movil-largo.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/hero.css">
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -56,28 +56,100 @@
   </header>
 
   <main id="contenido">
-    <section class="hero" id="inicio">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Diseño de landing pages · Entrega rápida</p>
-          <h1>Tu negocio online, <em>rápido</em> y sin vueltas.</h1>
-          <p class="lead">Elegís un plan, nos mandás tu logo y tus datos, y armamos tu landing con plantillas probadas para tu rubro. Dominio, hosting y WhatsApp incluidos.</p>
-          <div class="hero-ctas">
-            <a class="btn btn-primary btn-lg" href="#planes">Ver planes y precios <i class="bi bi-arrow-right"></i></a>
-            <a class="btn btn-ghost btn-lg" href="#ejemplos"><i class="bi bi-play-circle"></i> Ver ejemplos</a>
-          </div>
-          <ul class="hero-checks">
-            <li><i class="bi bi-check-circle-fill"></i> Desde <strong data-from-price>$149.000</strong> pago único</li>
-            <li><i class="bi bi-check-circle-fill"></i> Pagás con Mercado Pago</li>
-            <li><i class="bi bi-check-circle-fill"></i> Sin contratos largos</li>
-          </ul>
+    <section class="hm" id="inicio" data-hero-scroll>
+      <div class="hm-stage">
+        <div class="hm-night" aria-hidden="true"></div>
+        <div class="hm-stars" aria-hidden="true"></div>
+        <div class="hm-sun" aria-hidden="true"></div>
+        <p class="hm-word" aria-hidden="true">Lanzate</p>
+        <svg class="hm-hills hm-hills-back" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 250 C 160 170 300 210 430 180 S 700 90 860 160 S 1150 120 1260 170 S 1400 190 1440 175 V400 H0 Z" fill="#3a2385"/>
+        </svg>
+        <svg class="hm-hills hm-hills-front" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 300 C 200 250 360 290 560 270 S 880 230 1060 270 S 1330 280 1440 260 V400 H0 Z" fill="#1c1250"/>
+        </svg>
+
+        <div class="hm-copy">
+          <p class="hm-eyebrow">Diseño de landing pages · Entrega rápida</p>
+          <h1 class="hm-title">Tu negocio,<br>listo para despegar.</h1>
+          <p class="hm-sub">Mirá cómo armamos tu landing: vos elegís el plan, nosotros hacemos el resto.</p>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="phone phone-back"><div class="phone-screen"><img src="img/ejemplos/estetica-movil-largo.webp" alt="" width="450" height="2160" decoding="async"></div></div>
-          <div class="phone phone-front"><div class="phone-screen"><img src="img/ejemplos/barberia-movil-largo.webp" alt="" width="450" height="2160" fetchpriority="high"></div></div>
-          <div class="phone phone-side"><div class="phone-screen"><img src="img/ejemplos/viajes-movil-largo.webp" alt="" width="450" height="2160" decoding="async"></div></div>
-          <div class="float-card fc-time"><i class="bi bi-rocket-takeoff"></i><div><strong>Entrega rápida</strong><span>de tu pedido a online</span></div></div>
-          <div class="float-card fc-wa"><i class="bi bi-whatsapp"></i><div><strong>Nueva consulta</strong><span>“Hola, ¿tienen turno hoy?”</span></div></div>
+
+        <div class="hm-phone" aria-hidden="true">
+          <span class="hm-trail"></span>
+          <span class="hm-fin hm-fin-l"></span>
+          <span class="hm-fin hm-fin-r"></span>
+          <span class="hm-engine"></span>
+          <span class="hm-flame"></span>
+          <div class="hm-screen">
+            <div class="hm-url" data-at="0.76">
+              <span class="hm-led"></span>
+              <span class="hm-urls">
+                <b data-range="0,0.34">lanzate.com.ar/planes</b>
+                <b data-range="0.34,0.56">lanzate.com.ar/tu-negocio</b>
+                <b data-range="0.56,1.01">barberianorte.com.ar</b>
+              </span>
+            </div>
+
+            <div class="hm-scr" data-range="0,0.34">
+              <p class="hm-scr-title"><span>T-3</span>Elegí tu plan</p>
+              <div class="hm-pl">Express<b data-hero-price="express">$149.000</b></div>
+              <div class="hm-pl" data-at="0.2">Negocio <em>Más elegido</em><b data-hero-price="negocio">$249.000</b></div>
+              <div class="hm-pl">Pro<b data-hero-price="pro">$399.000</b></div>
+              <div class="hm-mp" data-at="0.26">Pagar con Mercado Pago</div>
+              <div class="hm-ok" data-at="0.3"><i class="bi bi-check-lg"></i>Pago aprobado<small>Plan Negocio</small></div>
+            </div>
+
+            <div class="hm-scr" data-range="0.34,0.56">
+              <p class="hm-scr-title"><span>T-2</span>Contanos de tu negocio</p>
+              <div class="hm-fd">Nombre<span class="hm-input"><span class="hm-typed" data-at="0.37">Barbería Norte</span></span></div>
+              <div class="hm-fd">Rubro<span class="hm-input"><span class="hm-typed" data-at="0.4">Barbería</span></span></div>
+              <div class="hm-fd">WhatsApp<span class="hm-input"><span class="hm-typed" data-at="0.43">11 2345-6789</span></span></div>
+              <div class="hm-fd">Color de marca<span class="hm-sw"><i style="--c:#1f6f5c"></i><i style="--c:#b0703a" data-at="0.46"></i><i style="--c:#3b4fd8"></i><i style="--c:#c2415d"></i></span></div>
+              <div class="hm-fd">Fotos<span class="hm-ph"><i data-at="0.48"></i><i data-at="0.495"></i><i data-at="0.51"></i></span></div>
+              <div class="hm-send" data-at="0.53"><span>Enviar</span><span>¡Enviado!</span></div>
+            </div>
+
+            <div class="hm-scr hm-site" data-range="0.56,1.01">
+              <div class="hm-nav hm-bd" data-at="0.58"><span class="hm-logo"><i></i>Barbería Norte</span><span class="hm-burger"></span></div>
+              <div class="hm-shot hm-bd" data-at="0.61"><span>Cortes con estilo, en el barrio.</span></div>
+              <div class="hm-lines hm-bd" data-at="0.64"><i></i><i></i><i></i></div>
+              <div class="hm-btn hm-bd" data-at="0.67">Reservar turno</div>
+              <div class="hm-cards hm-bd" data-at="0.7"><div><i class="bi bi-scissors"></i></div><div><i class="bi bi-brush"></i></div><div><i class="bi bi-stars"></i></div></div>
+              <div class="hm-wa hm-bd" data-at="0.73"><i class="bi bi-whatsapp"></i></div>
+            </div>
+
+            <div class="hm-toast" data-at="0.84"><i class="bi bi-whatsapp"></i><span><b>Nueva consulta</b>¿Tenés turno mañana a las 18?</span></div>
+          </div>
+        </div>
+
+        <div class="hm-chip hm-chip-domain" data-at="0.76" aria-hidden="true"><i class="bi bi-globe2"></i><span>Dominio .com.ar<small>y hosting incluidos</small></span></div>
+        <div class="hm-chip hm-chip-wa" data-at="0.73" aria-hidden="true"><i class="bi bi-whatsapp"></i><span>WhatsApp conectado<small>las consultas te llegan directo</small></span></div>
+        <div class="hm-chip hm-chip-live" data-at="0.82" aria-hidden="true"><i class="bi bi-broadcast"></i><span>¡Online!<small>tu negocio ya se ve</small></span></div>
+
+        <div class="hm-alt" aria-hidden="true">
+          <small>Altura</small>
+          <strong><span data-counter="400" data-from="0.78">0</span> km</strong>
+        </div>
+
+        <div class="hm-final" data-at="0.92">
+          <p>Tu negocio, en órbita.</p>
+          <a class="btn btn-lime btn-lg" href="#planes">Elegir mi plan <i class="bi bi-arrow-right"></i></a>
+        </div>
+
+        <ol class="hm-steps">
+          <li data-range="0.08,0.34"><b>T-3</b>Elegís tu plan y pagás con Mercado Pago</li>
+          <li data-range="0.34,0.56"><b>T-2</b>Nos contás de tu negocio</li>
+          <li data-range="0.56,0.78"><b>T-1</b>Diseñamos tu landing con esos datos</li>
+          <li data-range="0.78,1.01"><b>¡Despegue!</b>Tu negocio, online y recibiendo consultas</li>
+        </ol>
+
+        <div class="hm-hint">
+          <div class="hm-ctas">
+            <a class="btn btn-lime btn-lg" href="#planes">Elegir mi plan</a>
+            <a class="btn btn-outline-light btn-lg" href="#ejemplos">Ver ejemplos</a>
+          </div>
+          <small>Scrolleá y despegamos <i class="bi bi-arrow-down"></i></small>
         </div>
       </div>
     </section>
