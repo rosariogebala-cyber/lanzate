@@ -102,6 +102,51 @@
   .lightbox-panel, .lightbox::backdrop { transition: none; }
 }
 
+/* Lightbox de ejemplos */
+.lightbox-web .lightbox-panel { width: min(1320px, 100%); height: 100%; overflow: hidden; background: var(--ink); }
+.web-bar { display: flex; align-items: center; gap: 12px; padding: 12px 12px 12px 22px; color: #fff; }
+.web-title { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; }
+.web-title strong { font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.web-title .tag { flex: none; }
+.web-views { display: inline-flex; padding: 4px; border-radius: 999px; background: rgba(255, 255, 255, .1); }
+.web-views button, .web-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, .75);
+  font: 600 14px/1 var(--body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.web-views button:hover, .web-open:hover { color: #fff; }
+.web-views button[aria-pressed="true"] { background: var(--lime); color: var(--ink); }
+.web-open { border: 1px solid rgba(255, 255, 255, .25); }
+.lightbox-web .lightbox-close { position: static; flex: none; border-color: transparent; background: rgba(255, 255, 255, .12); color: #fff; }
+.lightbox-web .lightbox-close:hover, .lightbox-web .lightbox-close:focus-visible { background: var(--lime); border-color: var(--lime); color: var(--ink); }
+.web-stage { position: relative; flex: 1; min-height: 0; display: flex; justify-content: center; background: #1b1f45; }
+.web-stage:focus { outline: none; }
+.web-stage iframe { width: 100%; height: 100%; border: 0; background: #fff; opacity: 0; transition: opacity .3s ease, width .35s ease; }
+.web-stage.is-loaded iframe { opacity: 1; }
+.web-stage[data-view="mobile"] { padding: 18px 0; }
+.web-stage[data-view="mobile"] iframe { width: 390px; max-width: 100%; border-radius: 28px; box-shadow: 0 0 0 8px #0b0d26, 0 24px 60px -20px rgba(0, 0, 0, .6); }
+.web-loading { position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255, 255, 255, .6); font-weight: 600; }
+.web-loading i { display: inline-block; margin-right: 6px; animation: web-spin 1s linear infinite; }
+.web-stage.is-loaded .web-loading { display: none; }
+@keyframes web-spin { to { transform: rotate(360deg); } }
+@media (max-width: 700px) {
+  .lightbox-web .lightbox-panel { height: 94%; max-height: 94%; }
+  .web-bar { padding: 10px 10px 10px 16px; }
+  .web-views, .web-open span { display: none; }
+  .web-open { padding: 10px 12px; }
+  .web-stage[data-view="mobile"] { padding: 0; }
+  .web-stage[data-view="mobile"] iframe { width: 100%; border-radius: 0; box-shadow: none; }
+}
+
 /* Pie: legales y datos fiscales */
 .footer-regret { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .35); color: #fff; font-weight: 600; text-decoration: none; }
 .footer-regret:hover { border-color: var(--lime); color: var(--lime); }

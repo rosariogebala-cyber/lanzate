@@ -150,4 +150,72 @@
     if (e.target === box || e.target.closest(".lightbox-close") || e.target.closest("[data-lightbox-close]")) close();
   });
   box.addEventListener("cancel", function (e) { e.preventDefault(); close(); });
+
+  /* Lightbox de ejemplos: la web en vivo dentro de un iframe */
+  var demo = document.createElement("dialog");
+  demo.className = "lightbox lightbox-web";
+  demo.innerHTML =
+    '<div class="lightbox-panel">' +
+      '<div class="web-bar">' +
+        '<span class="web-title"><span class="tag" data-web-tag></span><strong data-web-name></strong></span>' +
+        '<span class="web-views" role="group" aria-label="Vista">' +
+          '<button type="button" data-web-view="desktop" aria-pressed="true"><i class="bi bi-laptop"></i><span>Computadora</span></button>' +
+          '<button type="button" data-web-view="mobile" aria-pressed="false"><i class="bi bi-phone"></i><span>Celular</span></button>' +
+        "</span>" +
+        '<a class="web-open" data-web-open target="_blank" rel="noopener" aria-label="Abrir en otra pestaña"><i class="bi bi-box-arrow-up-right"></i><span>Abrir</span></a>' +
+        '<button class="lightbox-close" type="button" aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>' +
+      "</div>" +
+      '<div class="web-stage" data-view="desktop" tabindex="-1" autofocus><span class="web-loading"><span><i class="bi bi-arrow-repeat"></i> Cargando…</span></span><iframe title="Ejemplo de landing"></iframe></div>' +
+    "</div>";
+  document.body.appendChild(demo);
+  var frame = demo.querySelector("iframe");
+  var stage = demo.querySelector(".web-stage");
+  var demoOpener = null;
+
+  function setView(view) {
+    stage.setAttribute("data-view", view);
+    demo.querySelectorAll("[data-web-view]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-web-view") === view));
+    });
+  }
+
+  function closeDemo() {
+    if (!demo.open) return;
+    demo.classList.remove("is-open");
+    document.documentElement.classList.remove("has-lightbox");
+    setTimeout(function () {
+      demo.close();
+      frame.removeAttribute("src");
+      stage.classList.remove("is-loaded");
+      if (demoOpener) demoOpener.focus();
+    }, 220);
+  }
+
+  frame.addEventListener("load", function () { if (frame.getAttribute("src")) stage.classList.add("is-loaded"); });
+
+  document.querySelectorAll(".examples .example").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      demoOpener = a;
+      var tag = a.querySelector(".tag"), name = a.querySelector("strong");
+      demo.querySelector("[data-web-tag]").textContent = tag ? tag.textContent : "";
+      demo.querySelector("[data-web-name]").textContent = name ? name.textContent : "";
+      demo.setAttribute("aria-label", "Ejemplo: " + (name ? name.textContent : "landing"));
+      demo.querySelector("[data-web-open]").href = a.href;
+      setView(window.matchMedia("(max-width: 700px)").matches ? "mobile" : "desktop");
+      stage.classList.remove("is-loaded");
+      frame.src = a.href;
+      demo.showModal();
+      document.documentElement.classList.add("has-lightbox");
+      requestAnimationFrame(function () { demo.classList.add("is-open"); });
+    });
+  });
+
+  demo.addEventListener("click", function (e) {
+    var v = e.target.closest("[data-web-view]");
+    if (v) return setView(v.getAttribute("data-web-view"));
+    if (e.target === demo || e.target.closest(".lightbox-close")) closeDemo();
+  });
+  demo.addEventListener("cancel", function (e) { e.preventDefault(); closeDemo(); });
 })();
