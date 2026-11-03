@@ -24,8 +24,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="css/main.css?v=20261103b">
-  <link rel="stylesheet" href="css/hero.css?v=20261103b">
+  <link rel="stylesheet" href="css/main.css?v=20261103c">
+  <link rel="stylesheet" href="css/hero.css?v=20261103c">
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -79,20 +79,30 @@
         <div class="hm-phone" aria-hidden="true">
           <svg class="hm-fin hm-fin-l" viewBox="0 0 100 160" preserveAspectRatio="none">
             <defs>
-              <linearGradient id="hm-fin-g" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#7f9e16"/>
-                <stop offset=".35" stop-color="#c3e64a"/>
-                <stop offset=".62" stop-color="#efffad"/>
-                <stop offset=".85" stop-color="#b9dc3d"/>
-                <stop offset="1" stop-color="#6d8a10"/>
+              <linearGradient id="hm-fin-g" x1="0" y1="0" x2="1" y2=".25">
+                <stop offset="0" stop-color="#1b1d29"/>
+                <stop offset=".45" stop-color="#3a3e52"/>
+                <stop offset=".72" stop-color="#6b7089"/>
+                <stop offset=".88" stop-color="#3b3f53"/>
+                <stop offset="1" stop-color="#16171f"/>
+              </linearGradient>
+              <linearGradient id="hm-edge" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="rgba(255,255,255,.15)"/>
+                <stop offset=".6" stop-color="rgba(255,255,255,.75)"/>
+                <stop offset="1" stop-color="rgba(255,255,255,.2)"/>
               </linearGradient>
               <linearGradient id="hm-metal" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#1c1452"/>
-                <stop offset=".2" stop-color="#4a35c9"/>
-                <stop offset=".4" stop-color="#d9d2ff"/>
-                <stop offset=".55" stop-color="#8b74ff"/>
-                <stop offset=".82" stop-color="#3a27a6"/>
-                <stop offset="1" stop-color="#140e3d"/>
+                <stop offset="0" stop-color="#15161e"/>
+                <stop offset=".18" stop-color="#3b3f50"/>
+                <stop offset=".38" stop-color="#b9bfd2"/>
+                <stop offset=".46" stop-color="#eef1f8"/>
+                <stop offset=".6" stop-color="#7d8299"/>
+                <stop offset=".84" stop-color="#2d303f"/>
+                <stop offset="1" stop-color="#101118"/>
+              </linearGradient>
+              <linearGradient id="hm-throat" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffd27a"/>
+                <stop offset="1" stop-color="#ff6a3a"/>
               </linearGradient>
               <radialGradient id="hm-hot" cx=".5" cy=".5" r=".5">
                 <stop offset="0" stop-color="#fffbe6"/>
@@ -100,27 +110,36 @@
                 <stop offset="1" stop-color="#ff5a36"/>
               </radialGradient>
             </defs>
-            <path d="M100 0 C 80 20 54 50 32 92 L 6 142 Q 2 156 16 159 L 100 148 Z" fill="url(#hm-fin-g)"/>
-            <path d="M100 0 C 80 20 54 50 32 92 L 6 142" fill="none" stroke="rgba(255,255,255,.65)" stroke-width="2.5"/>
-            <path d="M100 148 L 16 159" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="3"/>
-            <path d="M90 22 C 72 44 52 76 38 112 L 30 140" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="1.5"/>
+            <path d="M100 14 C 80 30 56 58 38 96 L 6 150 Q 3 158 12 158 L 100 150 Z" fill="url(#hm-fin-g)"/>
+            <path d="M100 14 C 80 30 56 58 38 96 L 6 150" fill="none" stroke="url(#hm-edge)" stroke-width="2"/>
+            <path d="M24 136 L 100 129 L 100 135 L 20 142 Z" fill="#d5f660"/>
+            <path d="M100 58 L 58 72" fill="none" stroke="rgba(0,0,0,.35)" stroke-width="1"/>
+            <path d="M100 59 L 58 73" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <circle cx="92" cy="100" r="1.4" fill="rgba(255,255,255,.25)"/><circle cx="92" cy="116" r="1.4" fill="rgba(255,255,255,.25)"/><circle cx="92" cy="84" r="1.4" fill="rgba(255,255,255,.25)"/>
+            <path d="M100 150 L 12 158" fill="none" stroke="rgba(0,0,0,.45)" stroke-width="2.5"/>
           </svg>
           <svg class="hm-fin hm-fin-r" viewBox="0 0 100 160" preserveAspectRatio="none">
-            <path d="M100 0 C 80 20 54 50 32 92 L 6 142 Q 2 156 16 159 L 100 148 Z" fill="url(#hm-fin-g)"/>
-            <path d="M100 0 C 80 20 54 50 32 92 L 6 142" fill="none" stroke="rgba(255,255,255,.65)" stroke-width="2.5"/>
-            <path d="M100 148 L 16 159" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="3"/>
-            <path d="M90 22 C 72 44 52 76 38 112 L 30 140" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="1.5"/>
+            <path d="M100 14 C 80 30 56 58 38 96 L 6 150 Q 3 158 12 158 L 100 150 Z" fill="url(#hm-fin-g)"/>
+            <path d="M100 14 C 80 30 56 58 38 96 L 6 150" fill="none" stroke="url(#hm-edge)" stroke-width="2"/>
+            <path d="M24 136 L 100 129 L 100 135 L 20 142 Z" fill="#d5f660"/>
+            <path d="M100 58 L 58 72" fill="none" stroke="rgba(0,0,0,.35)" stroke-width="1"/>
+            <path d="M100 59 L 58 73" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <circle cx="92" cy="100" r="1.4" fill="rgba(255,255,255,.25)"/><circle cx="92" cy="116" r="1.4" fill="rgba(255,255,255,.25)"/><circle cx="92" cy="84" r="1.4" fill="rgba(255,255,255,.25)"/>
+            <path d="M100 150 L 12 158" fill="none" stroke="rgba(0,0,0,.45)" stroke-width="2.5"/>
           </svg>
           <div class="hm-engine">
             <span class="hm-trail"></span>
             <span class="hm-fire"><i></i><i></i><i></i></span>
             <svg viewBox="0 0 120 70">
-              <rect x="22" y="0" width="76" height="15" rx="3" fill="url(#hm-metal)"/>
-              <rect x="22" y="10" width="76" height="4" fill="rgba(0,0,0,.35)"/>
-              <path d="M30 15 L90 15 C 94 36 104 54 114 67 L6 67 C 16 54 26 36 30 15 Z" fill="url(#hm-metal)"/>
-              <path d="M26 34 Q60 38 94 34 M18 50 Q60 55 102 50" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.6"/>
-              <ellipse cx="60" cy="67" rx="54" ry="4" fill="#120c33"/>
-              <ellipse class="hm-hot" cx="60" cy="67" rx="46" ry="3" fill="url(#hm-hot)"/>
+              <rect x="26" y="0" width="68" height="9" rx="2" fill="url(#hm-metal)"/>
+              <rect x="26" y="7" width="68" height="2" fill="rgba(0,0,0,.45)"/>
+              <rect x="32" y="9" width="56" height="5" fill="url(#hm-metal)"/>
+              <path d="M34 14 L86 14 C 89 34 100 52 112 66 L8 66 C 20 52 31 34 34 14 Z" fill="url(#hm-metal)"/>
+              <path d="M31 26 Q60 29 89 26 M25 40 Q60 44 95 40 M17 53 Q60 58 103 53" fill="none" stroke="rgba(0,0,0,.4)" stroke-width="1.2"/>
+              <path d="M31 27 Q60 30 89 27 M25 41 Q60 45 95 41 M17 54 Q60 59 103 54" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+              <ellipse cx="60" cy="66" rx="53" ry="4.5" fill="#0b0c12"/>
+              <ellipse cx="60" cy="66" rx="50" ry="3.4" fill="url(#hm-throat)" opacity=".55"/>
+              <ellipse class="hm-hot" cx="60" cy="66" rx="40" ry="2.6" fill="url(#hm-hot)"/>
             </svg>
           </div>
           <div class="hm-screen">
@@ -515,7 +534,7 @@
 
   <a class="wa-float" href="#" data-wa-link aria-label="Escribinos por WhatsApp" title="Escribinos por WhatsApp"><i class="bi bi-whatsapp"></i></a>
 
-  <script src="js/config.js?v=20261103b"></script>
-  <script src="js/main.js?v=20261103b"></script>
+  <script src="js/config.js?v=20261103c"></script>
+  <script src="js/main.js?v=20261103c"></script>
 </body>
 </html>
