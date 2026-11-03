@@ -47,7 +47,8 @@
   var heroScroll = document.querySelector("[data-hero-scroll]");
   function onScroll() {
     header.classList.toggle("is-scrolled", window.scrollY > 8);
-    var inHero = heroScroll ? heroScroll.getBoundingClientRect().bottom > header.offsetHeight : false;
+    var skyEnd = document.querySelector(".strip") || heroScroll;
+    var inHero = skyEnd ? skyEnd.getBoundingClientRect().bottom - 60 > header.offsetHeight : false;
     header.classList.toggle("is-hero", inHero);
     if (!waFloat) return;
     waFloat.classList.toggle("is-visible", window.scrollY > 300 && !inHero);

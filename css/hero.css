@@ -412,7 +412,109 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
   .hm-ctas { flex-direction: column; }
 }
 
+/* ============ Continuidad del hero en el resto del sitio ============ */
+.strip::before,
+.section-dark {
+  background-image:
+    radial-gradient(1.4px 1.4px at 20px 30px, rgba(255, 255, 255, .9), transparent),
+    radial-gradient(1px 1px at 90px 120px, rgba(255, 255, 255, .7), transparent),
+    radial-gradient(1.6px 1.6px at 160px 60px, rgba(255, 255, 255, .9), transparent),
+    radial-gradient(1px 1px at 220px 180px, rgba(255, 255, 255, .7), transparent),
+    radial-gradient(1.2px 1.2px at 60px 210px, rgba(255, 255, 255, .8), transparent),
+    radial-gradient(1px 1px at 250px 20px, rgba(255, 255, 255, .7), transparent);
+  background-size: 280px 240px;
+}
+
+/* Aterrizaje: la franja sigue en el cielo y termina en el horizonte claro del sitio */
+.strip {
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  padding-bottom: clamp(60px, 8vw, 110px);
+  background: linear-gradient(180deg, #2a1e72 0%, #1c1250 100%);
+}
+.strip::before { content: ""; position: absolute; inset: 0; opacity: .6; }
+.strip::after {
+  content: "";
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  bottom: -1px;
+  height: clamp(60px, 8vw, 110px);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: var(--paper);
+  box-shadow: 0 -14px 50px rgba(139, 116, 255, .55), 0 -2px 0 rgba(213, 246, 96, .5);
+}
+.strip .strip-row { position: relative; z-index: 1; color: rgba(255, 255, 255, .88); }
+.strip .strip-row i { color: var(--lime); }
+
+/* Etiquetas de sección con la misma pastilla del hero */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-size: 12px;
+  letter-spacing: .1em;
+}
+.kicker::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 1px rgba(14, 17, 48, .18), 0 0 0 4px rgba(213, 246, 96, .35); }
+.section-dark .kicker { border-color: rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .06); }
+
+/* Cómo funciona: la misma cuenta regresiva del hero */
+.step-num { width: fit-content; min-width: 44px; padding: 0 10px; font-size: 16px; letter-spacing: -.01em; }
+
+/* Sección oscura con el cielo de fondo */
+.section-dark { background-color: #12103a; }
+
+/* Cierre: vuelve el atardecer del principio */
+.final-box {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 40px 150px;
+  background: linear-gradient(180deg, #2a1f7a 0%, #7b4fd6 40%, #ef8fb5 78%, #ffcc9a 100%);
+  animation: none;
+}
+.final-box > :not(.final-scene) { position: relative; z-index: 1; }
+.final-box h2 { text-shadow: 0 6px 30px rgba(40, 20, 100, .35); }
+.final-box p { color: rgba(255, 255, 255, .9); }
+.final-scene { position: absolute; inset: 0; pointer-events: none; }
+.final-scene svg { position: absolute; left: 0; bottom: 0; width: 100%; height: 46%; }
+.final-sun {
+  position: absolute;
+  left: 50%;
+  bottom: 22%;
+  width: min(60%, 460px);
+  aspect-ratio: 1;
+  translate: -50% 50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff3d6 0%, #ffc58f 40%, rgba(255, 140, 140, 0) 70%);
+}
+.final-rocket {
+  display: inline-grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background: var(--lime);
+  color: var(--violet);
+  font-size: 26px;
+  box-shadow: 0 14px 30px rgba(40, 20, 100, .35);
+  animation: final-float 4s ease-in-out infinite;
+}
+@keyframes final-float { 50% { transform: translateY(-8px) rotate(-6deg); } }
+.final-box .hero-ctas { margin-top: 28px; }
+.final-box .btn-outline-light { background: rgba(28, 18, 80, .55); border-color: rgba(255, 255, 255, .5); backdrop-filter: blur(8px); }
+
+@media (max-width: 600px) {
+  .final-box { padding: 44px 22px 130px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .final-rocket { animation: none; }
   .hm { height: auto; }
   .hm-stage { position: relative; }
   .hm *, .hm *::before, .hm *::after { animation: none !important; transition: none !important; }
