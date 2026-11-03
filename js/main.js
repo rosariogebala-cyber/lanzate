@@ -105,6 +105,11 @@
     a.target = "_blank";
     a.rel = "noopener";
   });
+  document.querySelectorAll("[data-wa-rubro]").forEach(function (a) {
+    a.href = waUrl("Hola, quiero una landing para " + a.getAttribute("data-wa-rubro") + ". ¿Cómo quedaría?");
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
   document.querySelectorAll("[data-mail-link]").forEach(function (a) {
     a.href = "mailto:" + site.email;
     a.lastChild.textContent = " " + site.email;
@@ -112,12 +117,57 @@
   var year = document.querySelector("[data-year]");
   if (year) year.textContent = new Date().getFullYear();
 
+  /* Datos estructurados para buscadores: servicio, planes y preguntas frecuentes */
+  var pageUrl = document.querySelector('link[rel="canonical"]');
+  pageUrl = pageUrl ? pageUrl.href : location.href;
+  var schema = [{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": site.marca,
+    "url": pageUrl,
+    "image": new URL("img/og-lanzate.jpg", pageUrl).href,
+    "logo": new URL("img/apple-touch-icon.png", pageUrl).href,
+    "description": document.querySelector('meta[name="description"]').content,
+    "email": site.email,
+    "telephone": "+" + site.whatsapp,
+    "areaServed": { "@type": "Country", "name": "Argentina" },
+    "priceRange": "$" + money.format(Math.min.apply(null, plans.map(function (p) { return p.inicial; }))) + " - $" + money.format(Math.max.apply(null, plans.map(function (p) { return p.inicial; }))),
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Planes de landing pages",
+      "itemListElement": plans.map(function (p) {
+        return {
+          "@type": "Offer",
+          "name": "Plan " + p.nombre,
+          "description": p.para,
+          "price": p.inicial,
+          "priceCurrency": "ARS",
+          "itemOffered": { "@type": "Service", "name": "Landing page plan " + p.nombre }
+        };
+      })
+    }
+  }, {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": Array.prototype.map.call(document.querySelectorAll(".faq details"), function (d) {
+      return {
+        "@type": "Question",
+        "name": d.querySelector("summary").textContent.trim(),
+        "acceptedAnswer": { "@type": "Answer", "text": d.querySelector("p").textContent.trim() }
+      };
+    })
+  }];
+  var ld = document.createElement("script");
+  ld.type = "application/ld+json";
+  ld.textContent = JSON.stringify(schema);
+  document.head.appendChild(ld);
+
   /* Aparición suave al hacer scroll */
   var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if ("IntersectionObserver" in window && !calm) {
-    var targets = document.querySelectorAll(".section-head, .step, .plan, .plans-note, .compare, .example, .examples-more, .feature, .quote, .guarantee-row, .faq details, .final-box");
+    var targets = document.querySelectorAll(".section-head, .step, .plan, .plans-note, .compare, .example, .rubros, .vs-col, .feature, .quote, .guarantee-row, .faq details, .final-box");
     targets.forEach(function (el) {
-      var group = Array.prototype.filter.call(el.parentNode.children, function (sib) { return sib.matches(".step, .plan, .example, .feature, .quote, .faq details"); });
+      var group = Array.prototype.filter.call(el.parentNode.children, function (sib) { return sib.matches(".step, .plan, .example, .vs-col, .feature, .quote, .faq details"); });
       var index = group.indexOf(el);
       el.style.setProperty("--i", index > 0 ? Math.min(index, 6) : 0);
       el.classList.add("reveal");
