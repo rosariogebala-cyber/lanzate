@@ -464,9 +464,6 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
 .kicker::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 1px rgba(14, 17, 48, .18), 0 0 0 4px rgba(213, 246, 96, .35); }
 .section-dark .kicker { border-color: rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .06); }
 
-/* Cómo funciona: la misma cuenta regresiva del hero */
-.step-num { width: fit-content; min-width: 44px; padding: 0 10px; font-size: 16px; letter-spacing: -.01em; }
-
 /* Sección oscura con el cielo de fondo */
 .section-dark { background-color: #12103a; }
 
