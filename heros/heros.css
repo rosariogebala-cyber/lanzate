@@ -962,10 +962,52 @@ a { color: inherit; }
 .mix .armado-phone {
   transform: translateY(calc((1 - var(--rise)) * 72svh - var(--launch) * 6svh)) rotateX(calc((1 - var(--rise)) * 22deg));
 }
+/* Partes de la nave: el teléfono es el cuerpo */
+.ship-fin {
+  position: absolute;
+  bottom: -5%;
+  z-index: -1;
+  width: 30%;
+  height: 30%;
+  background: linear-gradient(180deg, #e4ff86, var(--lime) 50%, #a9cc2c);
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .35));
+}
+.ship-fin-l { right: calc(100% - 14px); clip-path: polygon(100% 0, 100% 84%, 0 100%, 6% 62%); border-radius: 0 0 0 10px; }
+.ship-fin-r { left: calc(100% - 14px); clip-path: polygon(0 0, 0 84%, 100% 100%, 94% 62%); border-radius: 0 0 10px 0; }
+.ship-engine {
+  position: absolute;
+  top: calc(100% - 6px);
+  left: 50%;
+  z-index: -1;
+  width: 46%;
+  aspect-ratio: 3 / 1;
+  translate: -50% 0;
+  clip-path: polygon(6% 0, 94% 0, 100% 100%, 0 100%);
+  background:
+    linear-gradient(180deg, transparent 38%, rgba(0, 0, 0, .28) 38% 46%, transparent 46%),
+    linear-gradient(90deg, #3d27b8, var(--violet-2) 35%, var(--violet) 65%, #3d27b8);
+}
+.ship-flame {
+  position: absolute;
+  top: calc(100% + 7.3% - 10px);
+  left: 50%;
+  z-index: -2;
+  width: 30%;
+  aspect-ratio: 1 / 1.6;
+  translate: -50% 0;
+  transform-origin: 50% 0;
+  transform: scaleY(calc(.35 + var(--launch) * 1.1));
+  border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+  background: radial-gradient(60% 70% at 50% 25%, #fff6c8, #ffb347 45%, rgba(255, 94, 122, .7) 75%, rgba(255, 94, 122, 0));
+  filter: blur(2px);
+  opacity: calc(.15 + var(--rise) * .2 + var(--launch));
+  animation: flicker .12s steps(2) infinite alternate;
+}
+
 .phone-trail {
   position: absolute;
   left: 50%;
-  top: calc(100% - 8px);
+  top: calc(100% + 7.3% + 20px);
   z-index: -1;
   width: 26%;
   height: calc(var(--launch) * 60svh);
