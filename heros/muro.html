@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Propuesta de hero 2 · Muro | Lanzate</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="heros.css">
+</head>
+<body>
+  <section class="muro" data-scroll data-pointer>
+    <header class="hx-top">
+      <a class="hx-brand" href="../"><i class="bi bi-rocket-takeoff-fill" aria-hidden="true"></i>Lanzate</a>
+      <a class="hx-btn hx-btn-lime hx-btn-sm" href="../#planes">Elegir mi plan</a>
+    </header>
+
+    <div class="muro-wall" aria-hidden="true" data-wall></div>
+
+    <div class="muro-copy">
+      <span class="hx-eyebrow">Diseño de landing pages · Entrega rápida</span>
+      <h1 class="muro-title">Landings que venden, para tu <em class="rotator" data-rotator><span>barbería.</span><span>estética.</span><span>inmobiliaria.</span><span>agencia.</span><span>instituto.</span><span>gimnasio.</span></em></h1>
+      <p class="muro-sub">Diseñamos la página de tu negocio con dominio, hosting y WhatsApp incluidos. Vos te ocupás de atender las consultas.</p>
+      <div class="hx-cta-row">
+        <a class="hx-btn hx-btn-lime" href="../#planes">Elegir mi plan <i class="bi bi-arrow-right"></i></a>
+        <a class="hx-btn hx-btn-ghost" href="../#ejemplos">Ver ejemplos</a>
+      </div>
+      <ul class="trust">
+        <li><i class="bi bi-check2-circle"></i>Dominio .com.ar</li>
+        <li><i class="bi bi-check2-circle"></i>WhatsApp directo</li>
+        <li><i class="bi bi-check2-circle"></i>Pagás con Mercado Pago</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hx-after">
+    <h2>Acá sigue el resto del sitio</h2>
+    <p>Planes, ejemplos, preguntas frecuentes…</p>
+  </section>
+
+  <nav class="hx-switch" aria-label="Propuestas de hero">
+    <a href="armado.html">1 · Armado</a>
+    <a href="muro.html" aria-current="page">2 · Muro</a>
+    <a href="despegue.html">3 · Despegue</a>
+  </nav>
+
+  <script>
+    (function () {
+      var shots = ["barberia", "estetica", "viajes", "inmobiliaria", "idiomas"];
+      var wall = document.querySelector("[data-wall]");
+      for (var c = 0; c < 5; c++) {
+        var col = document.createElement("div");
+        col.className = "muro-col";
+        var html = "";
+        for (var k = 0; k < 10; k++) {
+          var name = shots[(c * 2 + k) % shots.length];
+          html += '<div class="muro-card"><img src="../img/ejemplos/' + name + '.webp" width="800" height="500" alt=""' + (k > 3 ? ' loading="lazy"' : "") + "></div>";
+        }
+        col.innerHTML = html;
+        wall.appendChild(col);
+      }
+    })();
+  </script>
+  <script src="heros.js"></script>
+</body>
+</html>

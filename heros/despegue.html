@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Propuesta de hero 3 · Despegue | Lanzate</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="heros.css">
+</head>
+<body>
+  <section class="despegue" data-scroll>
+    <div class="stage">
+      <div class="sky-night" aria-hidden="true"></div>
+      <div class="stars" aria-hidden="true"></div>
+      <div class="sun" aria-hidden="true"></div>
+      <p class="word" aria-hidden="true">Lanzate</p>
+
+      <svg class="hills hills-back" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 250 C 160 170 300 210 430 180 S 700 90 860 160 S 1150 120 1260 170 S 1400 190 1440 175 V400 H0 Z" fill="#3a2385"/>
+      </svg>
+
+      <div class="rocket" aria-hidden="true">
+        <span class="trail"></span>
+        <svg viewBox="0 0 100 190">
+          <defs>
+            <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff6c8"/>
+              <stop offset=".45" stop-color="#ffb347"/>
+              <stop offset="1" stop-color="#ff5e7a" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path class="flame" d="M36 150 Q50 200 64 150 Z" fill="url(#flame)"/>
+          <path d="M22 118 L6 150 L34 140 Z" fill="#d5f660"/>
+          <path d="M78 118 L94 150 L66 140 Z" fill="#d5f660"/>
+          <path d="M50 4 C 78 30 84 80 76 146 H24 C 16 80 22 30 50 4 Z" fill="#ffffff"/>
+          <path d="M50 4 C 62 15 70 30 74 48 H26 C 30 30 38 15 50 4 Z" fill="#5a3df2"/>
+          <circle cx="50" cy="78" r="12" fill="#0e1130"/>
+          <circle cx="50" cy="78" r="7" fill="#8b74ff"/>
+          <rect x="44" y="120" width="12" height="30" rx="4" fill="#5a3df2"/>
+        </svg>
+      </div>
+
+      <svg class="hills hills-front" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 300 C 200 250 360 290 560 270 S 880 230 1060 270 S 1330 280 1440 260 V400 H0 Z" fill="#1c1250"/>
+        <rect x="680" y="250" width="80" height="14" rx="4" fill="#0e0a33"/>
+      </svg>
+
+      <header class="hx-top">
+        <a class="hx-brand" href="../"><i class="bi bi-rocket-takeoff-fill" aria-hidden="true"></i>Lanzate</a>
+        <a class="hx-btn hx-btn-lime hx-btn-sm" href="../#planes">Elegir mi plan</a>
+      </header>
+
+      <div class="despegue-copy">
+        <span class="hx-eyebrow">Diseño de landing pages · Entrega rápida</span>
+        <h1 class="despegue-title">Tu negocio,<br>listo para despegar.</h1>
+        <p class="despegue-sub">Landing profesional con dominio, hosting y WhatsApp incluidos. Scrolleá y despegamos.</p>
+        <div class="hx-cta-row">
+          <a class="hx-btn hx-btn-lime" href="../#planes">Elegir mi plan</a>
+          <a class="hx-btn hx-btn-ghost" href="../#ejemplos">Ver ejemplos</a>
+        </div>
+      </div>
+
+      <ol class="milestones">
+        <li data-at="0.18"><span>T-3</span><p>Elegís tu plan y pagás con Mercado Pago</p></li>
+        <li data-at="0.36"><span>T-2</span><p>Completás un formulario simple</p></li>
+        <li data-at="0.54"><span>T-1</span><p>Diseñamos tu landing</p></li>
+        <li data-at="0.72"><span>¡Ya!</span><p>Tu negocio, online</p></li>
+      </ol>
+
+      <div class="altimeter" aria-hidden="true">
+        <small>Altura</small>
+        <strong><span data-counter="400">0</span> km</strong>
+      </div>
+
+      <div class="orbit-card" data-at="0.86">
+        <h2>Tu negocio, en órbita.</h2>
+        <p>Más visible, más consultas, sin vueltas.</p>
+        <a class="hx-btn hx-btn-lime" href="../#planes">Elegir mi plan <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="hx-after">
+    <h2>Acá sigue el resto del sitio</h2>
+    <p>Planes, ejemplos, preguntas frecuentes…</p>
+  </section>
+
+  <nav class="hx-switch" aria-label="Propuestas de hero">
+    <a href="armado.html">1 · Armado</a>
+    <a href="muro.html">2 · Muro</a>
+    <a href="despegue.html" aria-current="page">3 · Despegue</a>
+  </nav>
+
+  <script src="heros.js"></script>
+</body>
+</html>
