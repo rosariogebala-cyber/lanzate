@@ -23,7 +23,9 @@
         n.classList.toggle("is-active", p >= parseFloat(r[0]) && p < parseFloat(r[1]));
       });
       el.querySelectorAll("[data-counter]").forEach(function (n) {
-        n.textContent = Math.round(p * parseFloat(n.getAttribute("data-counter"))).toLocaleString("es-AR");
+        var from = parseFloat(n.getAttribute("data-from") || 0);
+        var k = clamp((p - from) / (1 - from));
+        n.textContent = Math.round(k * parseFloat(n.getAttribute("data-counter"))).toLocaleString("es-AR");
       });
     });
   }

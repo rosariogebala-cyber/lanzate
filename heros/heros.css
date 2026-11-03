@@ -932,6 +932,67 @@ a { color: inherit; }
   .orbit-card { bottom: 80px; }
 }
 
+/* ============ 4 · MIX (Armado + Despegue) ============ */
+.armado.mix { height: 540vh; }
+.mix .stage {
+  --rise: clamp(0, calc(var(--p, 0) * 5.5), 1);
+  --launch: clamp(0, calc((var(--p, 0) - .78) * 5), 1);
+  background: linear-gradient(180deg, #2a1f7a 0%, #7b4fd6 38%, #ef8fb5 72%, #ffcc9a 100%);
+}
+.mix .stage::after { display: none; }
+.mix .sky-night { opacity: calc(.15 + var(--p, 0) * 1.05); }
+.mix .stars { opacity: calc(var(--p, 0) * 1.8 - .5); transform: translateY(calc(var(--launch) * 10svh)); }
+.mix .sun { transform: translateY(calc(var(--p, 0) * 40svh)); opacity: calc(1 - var(--p, 0) * 1.5); }
+.mix .word { bottom: 16%; transform: translateY(calc(var(--launch) * 45svh)); }
+.mix .hills-back { transform: translateY(calc(var(--launch) * 55svh)); }
+.mix .hills-front { transform: translateY(calc(var(--launch) * 85svh)); }
+
+.mix .armado-copy { opacity: calc(1 - var(--rise) * .6 - var(--launch)); }
+.mix-title {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(38px, 6vw, 84px);
+  line-height: .98;
+  letter-spacing: -.035em;
+  text-shadow: 0 6px 30px rgba(40, 20, 100, .35);
+}
+.mix .armado-sub { color: rgba(255, 255, 255, .85); }
+
+.mix .armado-phone {
+  transform: translateY(calc((1 - var(--rise)) * 72svh - var(--launch) * 6svh)) rotateX(calc((1 - var(--rise)) * 22deg));
+}
+.phone-trail {
+  position: absolute;
+  left: 50%;
+  top: calc(100% - 8px);
+  z-index: -1;
+  width: 26%;
+  height: calc(var(--launch) * 60svh);
+  translate: -50% 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff6c8, #ffb347 15%, rgba(255, 94, 122, .55) 40%, rgba(255, 255, 255, 0));
+  filter: blur(8px);
+  opacity: var(--launch);
+  animation: flicker .12s steps(2) infinite alternate;
+}
+.mix .altimeter { opacity: calc(var(--launch) * 3); }
+
+@media (max-width: 900px) {
+  .mix .armado-phone {
+    transform: translateY(calc((1 - var(--rise)) * 75svh - var(--launch) * 11svh)) rotateX(calc((1 - var(--rise)) * 22deg));
+  }
+  .mix .altimeter { top: 84px; right: 20px; }
+  .mix .word { bottom: 12%; }
+  .mix .armado-final { background: none; text-shadow: 0 2px 18px rgba(7, 8, 28, .8); }
+}
+@media (max-width: 900px) and (max-height: 700px) {
+  .mix .armado-phone {
+    transform: translateY(calc((1 - var(--rise)) * 75svh - var(--launch) * 4svh)) rotateX(calc((1 - var(--rise)) * 22deg));
+  }
+  .mix .chip-live { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .armado, .despegue { height: auto; }
