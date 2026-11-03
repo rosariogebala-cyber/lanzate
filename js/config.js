@@ -5,6 +5,14 @@ window.SITE = {
   marca: "Lanzate",
   email: "hola@example.com",
   whatsapp: "5491123456789",
+  /* Datos fiscales: se muestran en el pie y en las páginas legales cuando están completos.
+     dataFiscal es el link del QR de "Data Fiscal" que da ARCA. */
+  legal: {
+    razonSocial: "",
+    cuit: "",
+    domicilio: "",
+    dataFiscal: ""
+  },
   promo: {
     activa: true,
     texto: "Precio de lanzamiento: hasta 25% off en el pago inicial",

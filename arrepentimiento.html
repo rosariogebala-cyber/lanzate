@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Botón de arrepentimiento · Lanzate</title>
+  <meta name="description" content="Revocá tu compra en Lanzate dentro de los 10 días corridos, sin costo ni explicación.">
+  <link rel="canonical" href="https://rosariogebala-cyber.github.io/lanzate/arrepentimiento.html">
+  <meta name="theme-color" content="#5a3df2">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/main.css?v=20261103s">
+  <link rel="stylesheet" href="css/legal.css?v=20261103s">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i class="bi bi-rocket-takeoff-fill"></i></span>Lanzate</a>
+      <a class="btn btn-ghost btn-sm" href="index.html"><i class="bi bi-arrow-left"></i> Volver al sitio</a>
+    </div>
+  </header>
+
+  <main class="legal" id="contenido">
+    <div class="wrap legal-box">
+      <h1>Botón de arrepentimiento</h1>
+      <p class="legal-meta">Ley 24.240, artículo 34, y Resolución 424/2020</p>
+
+      <p>Si contrataste un plan en los últimos <strong>10 días corridos</strong>, podés revocar la compra sin costo y sin dar explicaciones. Completá estos datos y envianos el pedido. No necesitás registrarte.</p>
+      <p>Dentro de las 24 horas te enviamos un <strong>código de identificación</strong> del trámite y te devolvemos el pago por el mismo medio que usaste.</p>
+
+      <div class="regret-card">
+        <form class="regret-form" data-regret-form>
+          <div class="regret-row">
+            <label>Nombre y apellido<input name="nombre" autocomplete="name" required></label>
+            <label>DNI o CUIT<input name="documento" inputmode="numeric" required></label>
+          </div>
+          <div class="regret-row">
+            <label>Mail<input name="email" type="email" autocomplete="email" required></label>
+            <label>Fecha de pago<input name="fecha" type="date" required></label>
+          </div>
+          <label>Plan contratado<select name="plan" required><option value="">Elegí tu plan</option></select></label>
+          <label>Comentarios (opcional)<textarea name="detalle"></textarea></label>
+          <div class="regret-actions">
+            <button class="btn btn-primary btn-lg" type="submit"><i class="bi bi-envelope"></i> Enviar por mail</button>
+            <button class="btn btn-ghost btn-lg" type="button" data-regret-wa><i class="bi bi-whatsapp"></i> Enviar por WhatsApp</button>
+          </div>
+          <p class="regret-ok" data-regret-ok role="status"><i class="bi bi-check-circle-fill"></i> Listo. Al enviar el mensaje recibimos tu pedido y te respondemos con el código de identificación.</p>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <a class="brand brand-light" href="index.html"><span class="brand-mark" aria-hidden="true"><i class="bi bi-rocket-takeoff-fill"></i></span>Lanzate</a>
+        <p>Landings profesionales para negocios, con entrega rápida. Hecho en Argentina.</p>
+      </div>
+      <div>
+        <h3>Sitio</h3>
+        <a href="index.html#como-funciona">Cómo funciona</a>
+        <a href="index.html#planes">Planes</a>
+        <a href="index.html#ejemplos">Ejemplos</a>
+        <a href="index.html#preguntas">Preguntas</a>
+      </div>
+      <div>
+        <h3>Legales</h3>
+        <a href="terminos.html">Términos y condiciones</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="https://www.argentina.gob.ar/servicio/iniciar-un-reclamo-ante-defensa-del-consumidor" target="_blank" rel="noopener">Defensa del Consumidor</a>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <a href="#" data-wa-link><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        <a href="mailto:hola@example.com" data-mail-link><i class="bi bi-envelope"></i> hola@example.com</a>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© <span data-year>2026</span> Lanzate. Todos los derechos reservados. Precios en ARS con IVA incluido.</span>
+      <span class="footer-fiscal" data-fiscal hidden></span>
+      <a class="footer-regret" href="arrepentimiento.html"><i class="bi bi-arrow-counterclockwise"></i> Botón de arrepentimiento</a>
+    </div>
+  </footer>
+
+  <script src="js/config.js?v=20261103s"></script>
+  <script src="js/legal.js?v=20261103s"></script>
+</body>
+</html>
