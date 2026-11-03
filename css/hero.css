@@ -417,6 +417,7 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
 
 /* ============ Continuidad del hero en el resto del sitio ============ */
 .strip::before,
+.final-stars,
 .section-dark {
   background-image:
     radial-gradient(1.4px 1.4px at 20px 30px, rgba(255, 255, 255, .9), transparent),
@@ -474,15 +475,67 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
 .final-box {
   position: relative;
   overflow: hidden;
-  padding: 56px 40px 150px;
+  padding: 56px 40px clamp(170px, 17vw, 250px);
   background: linear-gradient(180deg, #2a1f7a 0%, #7b4fd6 40%, #ef8fb5 78%, #ffcc9a 100%);
   animation: none;
 }
 .final-box > :not(.final-scene) { position: relative; z-index: 1; }
 .final-box h2 { text-shadow: 0 6px 30px rgba(40, 20, 100, .35); }
 .final-box p { color: rgba(255, 255, 255, .9); }
-.final-scene { position: absolute; inset: 0; pointer-events: none; }
-.final-scene svg { position: absolute; left: 0; bottom: 0; width: 100%; height: 46%; }
+.final-scene { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.final-hills { position: absolute; left: 0; bottom: 0; width: 100%; height: 46%; transition: transform 1.2s cubic-bezier(.2, .8, .2, 1); }
+.final-hills-front { z-index: 2; }
+.final-stars { position: absolute; inset: 0 0 45%; opacity: .7; transition: opacity 1.4s ease; }
+.final-box .final-word {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 9%;
+  margin: 0;
+  text-align: center;
+  font: 800 clamp(72px, 15vw, 210px)/.8 var(--display);
+  letter-spacing: -.05em;
+  color: rgba(255, 255, 255, .9);
+  text-shadow: 0 10px 60px rgba(90, 30, 160, .35);
+  transition: transform 1.3s cubic-bezier(.2, .8, .2, 1) .25s, opacity 1s ease .25s;
+}
+.final-ship {
+  position: absolute;
+  left: 16%;
+  bottom: 12%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--lime);
+  font-size: 22px;
+  opacity: 0;
+  animation: final-launch 7s cubic-bezier(.5, 0, .8, .6) 1.6s infinite;
+}
+.final-ship i { rotate: -45deg; filter: drop-shadow(0 0 10px rgba(213, 246, 96, .6)); }
+.final-ship::after {
+  content: "";
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  width: 6px;
+  height: 90px;
+  translate: -50% 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff6c8, #ffb347 25%, rgba(255, 120, 80, .35) 60%, rgba(255, 255, 255, 0));
+  filter: blur(1px);
+}
+@keyframes final-launch {
+  0% { opacity: 0; transform: translateY(40px); }
+  8% { opacity: 1; }
+  45% { opacity: 1; transform: translateY(-420px); }
+  50%, 100% { opacity: 0; transform: translateY(-470px); }
+}
+.final-box.reveal:not(.is-in) .final-word { opacity: 0; transform: translateY(45%); }
+.final-box.reveal:not(.is-in) .final-sun { transform: translateY(35%); }
+.final-box.reveal:not(.is-in) .final-hills-back { transform: translateY(14%); }
+.final-box.reveal:not(.is-in) .final-stars { opacity: 0; }
 .final-sun {
   position: absolute;
   left: 50%;
@@ -492,6 +545,7 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
   translate: -50% 50%;
   border-radius: 50%;
   background: radial-gradient(circle, #fff3d6 0%, #ffc58f 40%, rgba(255, 140, 140, 0) 70%);
+  transition: transform 1.6s cubic-bezier(.2, .8, .2, 1);
 }
 .final-rocket {
   display: inline-grid;
@@ -571,7 +625,11 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
 }
 
 @media (max-width: 600px) {
-  .final-box { padding: 44px 22px 130px; }
+  .final-box { padding: 44px 22px 150px; }
+  .final-ship { left: 10%; bottom: 40px; }
+  .final-hills { height: 150px; }
+  .final-sun { bottom: 90px; }
+  .final-box .final-word { bottom: 44px; }
   .orbit { top: 0; scale: .7; transform-origin: 50% 0; }
   .sparks i:nth-child(2), .sparks i:nth-child(5) { display: none; }
   .sparks i:nth-child(1) { top: 34px; width: 18px; }
@@ -581,6 +639,7 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
 
 @media (prefers-reduced-motion: reduce) {
   .final-rocket, .sparks i { animation: none; }
+  .final-ship { display: none; }
   .orbit-ship { animation: none; offset-distance: 62%; }
   .hm { height: auto; }
   .hm-stage { position: relative; }
