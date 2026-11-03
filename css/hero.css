@@ -3,13 +3,13 @@
   --night: #07081c;
   --violet-2: #8b74ff;
   position: relative;
-  height: 540vh;
+  height: 584vh;
   margin-top: -72px;
   color: #fff;
 }
 .hm-stage {
-  --rise: clamp(0, calc(var(--p, 0) * 5.5), 1);
-  --launch: clamp(0, calc((var(--p, 0) - .78) * 5), 1);
+  --rise: clamp(0, calc(var(--p, 0) * 6.05), 1);
+  --launch: clamp(0, calc((var(--p, 0) - .8) * 5.5), 1);
   --lift: calc(var(--launch) * 17svh);
   position: sticky;
   top: 0;
