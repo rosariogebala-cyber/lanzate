@@ -381,7 +381,7 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
   .hm-eyebrow { gap: 6px; padding: 4px 10px; font-size: 10.5px; }
   .hm-eyebrow::before { width: 5px; height: 5px; box-shadow: 0 0 0 3px rgba(213, 246, 96, .18); }
   .hm-sub { max-width: 300px; font-size: 13px; line-height: 1.45; }
-  .hm-word { bottom: 12%; }
+  .hm-word { bottom: 27%; }
   .hm-phone {
     width: min(240px, 25svh, 58vw);
     translate: -50% -46%;
@@ -409,6 +409,7 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
 @media (max-width: 900px) and (max-height: 700px) {
   .hm-stage { --lift: calc(var(--launch) * 15svh); }
   .hm-chip-domain, .hm-chip-wa, .hm-chip-live { display: none; }
+  .hm-word { bottom: 36%; }
   .hm-final p { font-size: 17px; }
 }
 @media (max-width: 380px) {
@@ -472,9 +473,12 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
 .section-dark { background-color: #12103a; }
 
 /* Cierre: vuelve el atardecer del principio */
+.final-cta { padding-bottom: 0; }
 .final-box {
   position: relative;
   overflow: hidden;
+  width: 100%;
+  border-radius: 0;
   padding: 56px 40px clamp(170px, 17vw, 250px);
   background: linear-gradient(180deg, #2a1f7a 0%, #7b4fd6 40%, #ef8fb5 78%, #ffcc9a 100%);
   animation: none;
