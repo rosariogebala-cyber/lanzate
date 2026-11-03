@@ -432,6 +432,10 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
 .rubros-row.is-reverse .rubros-list li:nth-child(3n + 1) a i { color: var(--lime); }
 .rubros-row:not(.is-reverse) .rubros-list li:nth-child(4n + 2) a { background: var(--lime); border-color: var(--lime); color: var(--ink); }
 .rubros-row:not(.is-reverse) .rubros-list li:nth-child(4n + 2) a i { color: var(--ink); }
+.rubros .rubros-row .rubros-list li a:hover,
+.rubros .rubros-row .rubros-list li a:focus-visible { background: var(--ink); border-color: var(--ink); color: #fff; transform: translateY(-2px); }
+.rubros .rubros-row .rubros-list li a:hover i,
+.rubros .rubros-row .rubros-list li a:focus-visible i { color: var(--lime); }
 @keyframes rubros-slide { to { transform: translateX(-50%); } }
 @media (max-width: 600px) {
   .rubros { margin-top: 56px; }
