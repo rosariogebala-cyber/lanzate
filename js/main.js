@@ -45,7 +45,24 @@
   var waFloat = document.querySelector(".wa-float");
   var footer = document.querySelector(".site-footer");
   var heroScroll = document.querySelector("[data-hero-scroll]");
+  var spyLinks = Array.prototype.filter.call(document.querySelectorAll(".nav a:not(.btn)[href^='#']"), function (a) {
+    return a.getAttribute("href").length > 1 && document.querySelector(a.getAttribute("href"));
+  });
+  function spy() {
+    var line = header.offsetHeight + window.innerHeight * 0.3;
+    var current = null;
+    spyLinks.forEach(function (a) {
+      var sec = document.querySelector(a.getAttribute("href"));
+      if (sec.getBoundingClientRect().top <= line && sec.getBoundingClientRect().bottom > line) current = a;
+    });
+    spyLinks.forEach(function (a) {
+      a.classList.toggle("is-current", a === current);
+      if (a === current) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    });
+  }
+
   function onScroll() {
+    spy();
     header.classList.toggle("is-scrolled", window.scrollY > 8);
     var skyEnd = document.querySelector(".strip") || heroScroll;
     var inHero = skyEnd ? skyEnd.getBoundingClientRect().bottom - 60 > header.offsetHeight : false;

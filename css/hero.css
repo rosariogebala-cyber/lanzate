@@ -413,6 +413,31 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
   .hm-ctas { flex-direction: column; }
 }
 
+/* Menú: marca la sección en la que estás */
+.nav a:not(.btn) { position: relative; transition: color .25s ease; }
+.nav a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 18px;
+  height: 3px;
+  translate: -50% 0;
+  border-radius: 3px;
+  background: var(--violet);
+  transform: scaleX(0);
+  transition: transform .3s cubic-bezier(.2, .8, .2, 1);
+}
+.nav a.is-current { color: var(--violet); }
+.nav a.is-current::after { transform: none; }
+@media (min-width: 901px) {
+  .site-header.is-hero .nav a.is-current { color: var(--lime); }
+  .site-header.is-hero .nav a:not(.btn)::after { background: var(--lime); }
+}
+@media (max-width: 900px) {
+  .nav a:not(.btn)::after { left: auto; right: 4px; bottom: 50%; width: 8px; height: 8px; translate: 0 50%; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(90, 61, 242, .15); }
+}
+
 /* ============ Continuidad del hero en el resto del sitio ============ */
 .strip::before,
 .final-stars,
