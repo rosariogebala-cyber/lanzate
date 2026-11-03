@@ -68,6 +68,7 @@
         <svg class="hm-hills hm-hills-front" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0 300 C 200 250 360 290 560 270 S 880 230 1060 270 S 1330 280 1440 260 V400 H0 Z" fill="#1c1250"/>
         </svg>
+        <div class="hm-smoke" aria-hidden="true"></div>
 
         <div class="hm-copy">
           <p class="hm-eyebrow">Diseño de landing pages · Entrega rápida</p>
@@ -76,11 +77,52 @@
         </div>
 
         <div class="hm-phone" aria-hidden="true">
-          <span class="hm-trail"></span>
-          <span class="hm-fin hm-fin-l"></span>
-          <span class="hm-fin hm-fin-r"></span>
-          <span class="hm-engine"></span>
-          <span class="hm-flame"></span>
+          <svg class="hm-fin hm-fin-l" viewBox="0 0 100 160" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="hm-fin-g" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#7f9e16"/>
+                <stop offset=".35" stop-color="#c3e64a"/>
+                <stop offset=".62" stop-color="#efffad"/>
+                <stop offset=".85" stop-color="#b9dc3d"/>
+                <stop offset="1" stop-color="#6d8a10"/>
+              </linearGradient>
+              <linearGradient id="hm-metal" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#1c1452"/>
+                <stop offset=".2" stop-color="#4a35c9"/>
+                <stop offset=".4" stop-color="#d9d2ff"/>
+                <stop offset=".55" stop-color="#8b74ff"/>
+                <stop offset=".82" stop-color="#3a27a6"/>
+                <stop offset="1" stop-color="#140e3d"/>
+              </linearGradient>
+              <radialGradient id="hm-hot" cx=".5" cy=".5" r=".5">
+                <stop offset="0" stop-color="#fffbe6"/>
+                <stop offset=".45" stop-color="#ffc247"/>
+                <stop offset="1" stop-color="#ff5a36"/>
+              </radialGradient>
+            </defs>
+            <path d="M100 0 C 80 20 54 50 32 92 L 6 142 Q 2 156 16 159 L 100 148 Z" fill="url(#hm-fin-g)"/>
+            <path d="M100 0 C 80 20 54 50 32 92 L 6 142" fill="none" stroke="rgba(255,255,255,.65)" stroke-width="2.5"/>
+            <path d="M100 148 L 16 159" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="3"/>
+            <path d="M90 22 C 72 44 52 76 38 112 L 30 140" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="1.5"/>
+          </svg>
+          <svg class="hm-fin hm-fin-r" viewBox="0 0 100 160" preserveAspectRatio="none">
+            <path d="M100 0 C 80 20 54 50 32 92 L 6 142 Q 2 156 16 159 L 100 148 Z" fill="url(#hm-fin-g)"/>
+            <path d="M100 0 C 80 20 54 50 32 92 L 6 142" fill="none" stroke="rgba(255,255,255,.65)" stroke-width="2.5"/>
+            <path d="M100 148 L 16 159" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="3"/>
+            <path d="M90 22 C 72 44 52 76 38 112 L 30 140" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="1.5"/>
+          </svg>
+          <div class="hm-engine">
+            <span class="hm-trail"></span>
+            <span class="hm-fire"><i></i><i></i><i></i></span>
+            <svg viewBox="0 0 120 70">
+              <rect x="22" y="0" width="76" height="15" rx="3" fill="url(#hm-metal)"/>
+              <rect x="22" y="10" width="76" height="4" fill="rgba(0,0,0,.35)"/>
+              <path d="M30 15 L90 15 C 94 36 104 54 114 67 L6 67 C 16 54 26 36 30 15 Z" fill="url(#hm-metal)"/>
+              <path d="M26 34 Q60 38 94 34 M18 50 Q60 55 102 50" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.6"/>
+              <ellipse cx="60" cy="67" rx="54" ry="4" fill="#120c33"/>
+              <ellipse class="hm-hot" cx="60" cy="67" rx="46" ry="3" fill="url(#hm-hot)"/>
+            </svg>
+          </div>
           <div class="hm-screen">
             <div class="hm-url" data-at="0.76">
               <span class="hm-led"></span>
@@ -127,10 +169,6 @@
         <div class="hm-chip hm-chip-wa" data-at="0.73" aria-hidden="true"><i class="bi bi-whatsapp"></i><span>WhatsApp conectado<small>las consultas te llegan directo</small></span></div>
         <div class="hm-chip hm-chip-live" data-at="0.82" aria-hidden="true"><i class="bi bi-broadcast"></i><span>¡Online!<small>tu negocio ya se ve</small></span></div>
 
-        <div class="hm-alt" aria-hidden="true">
-          <small>Altura</small>
-          <strong><span data-counter="400" data-from="0.78">0</span> km</strong>
-        </div>
 
         <div class="hm-final" data-at="0.92">
           <p>Tu negocio, en órbita.</p>

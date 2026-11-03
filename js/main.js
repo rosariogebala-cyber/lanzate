@@ -199,7 +199,6 @@
     });
     var atEls = heroScroll.querySelectorAll("[data-at]");
     var rangeEls = heroScroll.querySelectorAll("[data-range]");
-    var counterEls = heroScroll.querySelectorAll("[data-counter]");
     var clamp01 = function (v) { return Math.max(0, Math.min(1, v)); };
     var heroTick = false;
     var updateHero = function () {
@@ -211,10 +210,6 @@
       rangeEls.forEach(function (n) {
         var r = n.getAttribute("data-range").split(",");
         n.classList.toggle("is-active", p >= parseFloat(r[0]) && p < parseFloat(r[1]));
-      });
-      counterEls.forEach(function (n) {
-        var from = parseFloat(n.getAttribute("data-from") || 0);
-        n.textContent = Math.round(clamp01((p - from) / (1 - from)) * parseFloat(n.getAttribute("data-counter"))).toLocaleString("es-AR");
       });
     };
     var queueHero = function () {
