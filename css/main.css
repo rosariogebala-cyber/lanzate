@@ -34,6 +34,8 @@ img { display: block; max-width: 100%; }
 a { color: inherit; }
 h1, h2, h3 { font-family: var(--display); line-height: 1.08; letter-spacing: -0.02em; margin: 0; }
 p { margin: 0; }
+h1, h2, h3, h4, summary { text-wrap: balance; }
+p, li, blockquote, figcaption { text-wrap: pretty; }
 .wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 14px; border-radius: 10px; background: var(--ink); color: #fff; }

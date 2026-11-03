@@ -239,4 +239,15 @@
     window.addEventListener("resize", queueHero);
     updateHero();
   }
+
+  /* Sin viudas: la última palabra de cada texto viaja con la anterior */
+  var widowTargets = document.querySelectorAll("main h1, main h2, main h3, main p, main li, main summary, .site-footer p");
+  Array.prototype.forEach.call(widowTargets, function (el) {
+    if (el.closest("[aria-hidden='true'], .rubros-list, .strip, .hm-screen")) return;
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    var last = null;
+    while (walker.nextNode()) { if (walker.currentNode.nodeValue.trim()) last = walker.currentNode; }
+    if (!last || el.textContent.trim().split(/\s+/).length < 4) return;
+    last.nodeValue = last.nodeValue.replace(/\s+(\S+\s*)$/, "\u00a0$1");
+  });
 })();
