@@ -32,11 +32,24 @@
 .slide-controls button[aria-current]{background:#f8f5ed;color:#27332a}
 .image-note{position:absolute;right:16px;bottom:10px;font-size:.7rem;color:white;background:#26362c;padding:2px 7px;border-radius:10px}
 @media(max-width:680px){.slide{min-height:510px;background-size:cover;background-image:linear-gradient(90deg,rgba(20,31,24,.88),rgba(20,31,24,.48)),url(studio.webp)}}
+.booking{background:#344c39;color:#fff;scroll-margin-top:1rem}
+.booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,6vw,75px);align-items:center}
+.booking-form{padding:clamp(18px,4vw,34px);background:#f8f5ed;color:#27332a;display:grid;gap:8px}
+.booking-form h3{margin-bottom:10px}
+.booking-form label{font-weight:600;font-size:.9rem;margin-top:7px}
+.booking-form select,.booking-form textarea{width:100%;padding:10px;border:1px solid #778372;border-radius:5px;background:#fff;color:#27332a;font:inherit;font-size:1rem}
+.booking-form select:focus-visible,.booking-form textarea:focus-visible{outline:3px solid #b57841;outline-offset:2px}
+.booking-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.booking-actions button{border:0;cursor:pointer;font:inherit;font-size:.9rem;font-weight:600}
+.booking-instagram{background:transparent;color:#27332a;border:1px solid #344c39}
+.booking-instagram:hover{background:#e9ebdf}
+#turno-estado{font-size:.82rem;margin:4px 0 0}
+@media(max-width:680px){.booking-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="inicio">
 <div class="demo"><a href="../../#proyectos">Volver a Proyectos de Lanzate</a> · Demo comercial</div>
-<header><div class="wrap"><a class="brand" href="#inicio">Portal Studio<small>LANÚS</small></a><nav aria-label="Principal"><a href="#estudio">El estudio</a><a href="#visita">Contacto</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="#inicio">Portal Studio<small>LANÚS</small></a><nav aria-label="Principal"><a href="#estudio">El estudio</a><a href="#turnos">Horarios y turnos</a></nav></div></header>
 <main>
 <section class="hero-carousel nx-hero" aria-label="Descubrí Portal Studio">
   <div class="slides" id="hero-slides" tabindex="0" aria-label="Carrusel de Portal Studio">
@@ -45,7 +58,7 @@
         <p class="eyebrow">Lanús · Buenos Aires</p>
         <h1>Portal Studio <em>Lanús.</em></h1>
         <p>Conocé el estudio y consultá por las clases.</p>
-        <a class="button" href="#visita">Consultar por clases</a>
+        <a class="button" href="#turnos">Consultar un turno</a>
       </div>
     </article>
     <article class="slide nx-hero-slide slide-lanus" id="lanus">
@@ -53,7 +66,7 @@
         <p class="eyebrow">Lanús · Buenos Aires</p>
         <h2>Tu próximo <em>movimiento.</em></h2>
         <p>Escribinos para conocer las opciones de clases y los horarios.</p>
-        <a class="button" href="#visita">Ver cómo consultar</a>
+        <a class="button" href="#turnos">Ver horarios y turnos</a>
       </div>
     </article>
   </div>
@@ -73,6 +86,37 @@
     <h2 id="estudio-titulo">Conocé Portal Studio</h2>
     <p>Encontranos en Lanús, Buenos Aires. Si querés empezar, escribinos para conocer las clases y coordinar tu visita.</p>
     <a href="https://www.instagram.com/portalstudio.lanus/" target="_blank" rel="noopener">Ver Instagram de Portal Studio</a>
+  </div>
+</section>
+<section class="section booking" id="turnos" aria-labelledby="turnos-titulo">
+  <div class="wrap booking-grid">
+    <div>
+      <p class="eyebrow">Portal Studio · Lanús</p>
+      <h2 id="turnos-titulo">Horarios y reserva de turno</h2>
+      <p>Elegí cuándo te gustaría venir y consultá la disponibilidad del estudio por Instagram.</p>
+      <p>Portal Studio te confirma el horario y la reserva por mensaje.</p>
+    </div>
+    <form class="booking-form" id="turno-form">
+      <h3>Prepará tu consulta</h3>
+      <label for="dia">Día que preferís</label>
+      <select id="dia" name="dia">
+        <option value="">Cualquier día</option>
+        <option>Lunes</option><option>Martes</option><option>Miércoles</option>
+        <option>Jueves</option><option>Viernes</option><option>Sábado</option><option>Domingo</option>
+      </select>
+      <label for="franja">Franja que preferís</label>
+      <select id="franja" name="franja">
+        <option value="">Cualquier horario</option>
+        <option>Mañana</option><option>Tarde</option><option>Noche</option>
+      </select>
+      <label for="mensaje-turno">Mensaje para Portal Studio</label>
+      <textarea id="mensaje-turno" rows="3" readonly>¡Hola! Quisiera consultar qué turnos tienen disponibles. ¡Gracias!</textarea>
+      <div class="booking-actions">
+        <button class="button" type="button" id="copiar-turno">Copiar mensaje</button>
+        <a class="button booking-instagram" href="https://www.instagram.com/portalstudio.lanus/" target="_blank" rel="noopener">Abrir Instagram</a>
+      </div>
+      <p id="turno-estado" role="status">Copiá el mensaje y pegalo en el chat del estudio.</p>
+    </form>
   </div>
 </section>
 <section class="section visit" id="visita" aria-labelledby="contacto-titulo">
@@ -118,6 +162,32 @@ function updateCarousel() {
 
 carousel.addEventListener('scroll', updateCarousel, { passive: true });
 updateCarousel();
+
+const bookingForm = document.querySelector('#turno-form');
+const message = document.querySelector('#mensaje-turno');
+const status = document.querySelector('#turno-estado');
+
+bookingForm.addEventListener('change', () => {
+  const day = bookingForm.elements.dia.value;
+  const period = bookingForm.elements.franja.value;
+  const preference = [
+    day && 'Día preferido: ' + day.toLowerCase() + '.',
+    period && 'Franja preferida: ' + period.toLowerCase() + '.'
+  ].filter(Boolean).join(' ');
+  message.value = ['¡Hola! Quisiera consultar qué turnos tienen disponibles.', preference, '¡Gracias!'].filter(Boolean).join(' ');
+  status.textContent = 'Copiá el mensaje y pegalo en el chat del estudio.';
+});
+
+document.querySelector('#copiar-turno').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(message.value);
+    status.textContent = 'Mensaje copiado. Abrí Instagram y pegalo en el chat del estudio.';
+  } catch {
+    message.focus();
+    message.select();
+    status.textContent = 'El mensaje quedó seleccionado para que lo copies.';
+  }
+});
 </script>
 </body>
 </html>
