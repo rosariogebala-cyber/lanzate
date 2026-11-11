@@ -57,12 +57,15 @@
 .bk-note{font-size:.8rem;margin:6px 0 0}
 #nombre-turno{display:block;width:100%;padding:10px;border:1px solid #778372;border-radius:5px;font:inherit}
 @media(max-width:480px){.bk-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.skip-link{position:fixed;inset:12px auto auto 12px;z-index:100;padding:12px 16px;background:#fff;color:var(--ink)}
+.skip-link:not(:focus){clip-path:inset(50%)}
 </style>
 </head>
 <body id="inicio">
+<a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
 <div class="demo"><a href="../../#proyectos">Volver a Proyectos de Lanzate</a> · Demo comercial</div>
 <header><div class="wrap"><a class="brand" href="#inicio">Portal Studio<small>LANÚS</small></a><nav aria-label="Principal"><a href="#estudio">El estudio</a><a href="#turnos">Horarios y turnos</a></nav></div></header>
-<main>
+<main id="contenido-principal" tabindex="-1">
 <section class="hero-carousel nx-hero" aria-label="Descubrí Portal Studio">
   <div class="slides" id="hero-slides" tabindex="0" aria-label="Carrusel de Portal Studio">
     <article class="slide nx-hero-slide" id="portada">
