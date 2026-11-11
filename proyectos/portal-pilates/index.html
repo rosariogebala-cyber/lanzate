@@ -45,6 +45,18 @@
 .booking-instagram:hover{background:#e9ebdf}
 #turno-estado{font-size:.82rem;margin:4px 0 0}
 @media(max-width:680px){.booking-grid{grid-template-columns:1fr}}
+.bk-step{border:0;padding:0;margin:0 0 12px;min-width:0}
+.bk-step legend{padding:0;margin-bottom:8px;font-weight:700}
+.bk-step legend span{display:inline-grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#e0e7d9;margin-right:5px}
+.bk-options{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.bk-options label{position:relative;margin:0;cursor:pointer}
+.bk-options input{position:absolute;opacity:0}
+.bk-options label span{display:grid;place-items:center;min-height:44px;border:1px solid #a5ad9f;border-radius:5px;text-align:center;padding:4px;font-size:.82rem}
+.bk-options input:checked+span{background:#344c39;color:#fff;border-color:#344c39}
+.bk-options input:focus-visible+span{outline:3px solid #b57841;outline-offset:2px}
+.bk-note{font-size:.8rem;margin:6px 0 0}
+#nombre-turno{display:block;width:100%;padding:10px;border:1px solid #778372;border-radius:5px;font:inherit}
+@media(max-width:480px){.bk-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 </head>
 <body id="inicio">
@@ -92,23 +104,32 @@
   <div class="wrap booking-grid">
     <div>
       <p class="eyebrow">Portal Studio · Lanús</p>
-      <h2 id="turnos-titulo">Horarios y reserva de turno</h2>
-      <p>Elegí cuándo te gustaría venir y consultá la disponibilidad del estudio por Instagram.</p>
-      <p>Portal Studio te confirma el horario y la reserva por mensaje.</p>
+      <h2 id="turnos-titulo">Reservá tu turno</h2>
+      <p>Elegí un día y un horario de preferencia. El estudio te confirma la disponibilidad por Instagram.</p>
+
     </div>
-    <form class="booking-form" id="turno-form">
-      <h3>Prepará tu consulta</h3>
-      <label for="dia">Día que preferís</label>
-      <select id="dia" name="dia">
-        <option value="">Cualquier día</option>
-        <option>Lunes</option><option>Martes</option><option>Miércoles</option>
-        <option>Jueves</option><option>Viernes</option><option>Sábado</option><option>Domingo</option>
-      </select>
-      <label for="franja">Franja que preferís</label>
-      <select id="franja" name="franja">
-        <option value="">Cualquier horario</option>
-        <option>Mañana</option><option>Tarde</option><option>Noche</option>
-      </select>
+    <form class="booking-form bk-card" id="turno-form">
+      <fieldset class="bk-step">
+        <legend><span>1</span> Elegí el día</legend>
+        <div class="bk-options bk-days" id="dias-turno"></div>
+      </fieldset>
+      <fieldset class="bk-step">
+        <legend><span>2</span> Elegí el horario</legend>
+        <div class="bk-options bk-slots">
+          <label><input type="radio" name="horario" value="09:00"><span>09:00</span></label>
+          <label><input type="radio" name="horario" value="10:00"><span>10:00</span></label>
+          <label><input type="radio" name="horario" value="12:00"><span>12:00</span></label>
+          <label><input type="radio" name="horario" value="15:00"><span>15:00</span></label>
+          <label><input type="radio" name="horario" value="17:00"><span>17:00</span></label>
+          <label><input type="radio" name="horario" value="19:00"><span>19:00</span></label>
+        </div>
+        <p class="bk-note">Horarios de ejemplo para indicar tu preferencia.</p>
+      </fieldset>
+      <fieldset class="bk-step">
+        <legend><span>3</span> Tus datos</legend>
+        <label for="nombre-turno">Nombre y apellido</label>
+        <input id="nombre-turno" name="nombre" autocomplete="name" maxlength="80">
+      </fieldset>
       <label for="mensaje-turno">Mensaje para Portal Studio</label>
       <textarea id="mensaje-turno" rows="3" readonly>¡Hola! Quisiera consultar qué turnos tienen disponibles. ¡Gracias!</textarea>
       <div class="booking-actions">
@@ -167,14 +188,37 @@ const bookingForm = document.querySelector('#turno-form');
 const message = document.querySelector('#mensaje-turno');
 const status = document.querySelector('#turno-estado');
 
-bookingForm.addEventListener('change', () => {
+const dayPicker = document.querySelector('#dias-turno');
+const studioDate = new Intl.DateTimeFormat('en-CA', {timeZone:'America/Argentina/Buenos_Aires', year:'numeric', month:'2-digit', day:'2-digit'});
+const dateParts = Object.fromEntries(studioDate.formatToParts().map(({type, value}) => [type, value]));
+const dayLabel = new Intl.DateTimeFormat('es-AR', {weekday:'short', day:'numeric', month:'numeric', timeZone:'UTC'});
+const fullDayLabel = new Intl.DateTimeFormat('es-AR', {weekday:'long', day:'numeric', month:'long', timeZone:'UTC'});
+
+for (let offset = 0; offset < 6; offset += 1) {
+  const date = new Date(Date.UTC(+dateParts.year, +dateParts.month - 1, +dateParts.day + offset));
+  const label = document.createElement('label');
+  const input = document.createElement('input');
+  const text = document.createElement('span');
+  input.type = 'radio';
+  input.name = 'dia';
+  input.value = fullDayLabel.format(date);
+  input.setAttribute('aria-label', input.value);
+  text.textContent = dayLabel.format(date);
+  label.append(input, text);
+  dayPicker.append(label);
+}
+
+bookingForm.addEventListener('submit', event => event.preventDefault());
+bookingForm.addEventListener('input', () => {
   const day = bookingForm.elements.dia.value;
-  const period = bookingForm.elements.franja.value;
+  const time = bookingForm.elements.horario.value;
+  const name = bookingForm.elements.nombre.value.trim();
   const preference = [
-    day && 'Día preferido: ' + day.toLowerCase() + '.',
-    period && 'Franja preferida: ' + period.toLowerCase() + '.'
+    day && 'Día preferido: ' + day + '.',
+    time && 'Horario preferido: ' + time + '.'
   ].filter(Boolean).join(' ');
-  message.value = ['¡Hola! Quisiera consultar qué turnos tienen disponibles.', preference, '¡Gracias!'].filter(Boolean).join(' ');
+  const greeting = name ? '¡Hola! Soy ' + name + '.' : '¡Hola!';
+  message.value = [greeting, 'Quisiera consultar por un turno.', preference, '¡Gracias!'].filter(Boolean).join(' ');
   status.textContent = 'Copiá el mensaje y pegalo en el chat del estudio.';
 });
 
