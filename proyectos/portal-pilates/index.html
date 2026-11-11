@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Portal Pilates &amp; Wellness | Demo de Lanzate</title>
+<title>Portal Studio Lanús | Demo de Lanzate</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -16,8 +16,12 @@
 .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
 .slides::-webkit-scrollbar{display:none}
 .slide{display:grid;align-items:center;flex:0 0 100%;min-height:clamp(480px,67vh,760px);scroll-snap-align:start;background-image:linear-gradient(90deg,rgba(20,31,24,.93),rgba(20,31,24,.62) 47%,rgba(20,31,24,.20)),url(studio.webp);background-size:cover;background-position:center}
-.slide-mat{background-position:center,center 70%;background-size:cover,115% auto}
-.slide-yoga{background-position:center,center 30%}
+.slide-lanus{background-image:linear-gradient(120deg,#203b31,#4b6351)}
+.nx-split{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(24px,6vw,74px)}
+.split-media{margin:0}
+.split-media img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.split-media figcaption{margin-top:6px;font-size:.75rem}
+@media(max-width:680px){.nx-split{grid-template-columns:1fr}.hero-carousel .slide-lanus{background-image:linear-gradient(120deg,#203b31,#4b6351)}}
 .slide-copy{padding-block:56px 108px}
 .slide-copy h1,.slide-copy h2{font-size:clamp(3.25rem,8vw,7rem);max-width:8em;margin-block:12px 16px}
 .slide-copy em{color:#e3eacb}
@@ -32,53 +36,62 @@
 </head>
 <body id="inicio">
 <div class="demo"><a href="../../#proyectos">Volver a Proyectos de Lanzate</a> · Demo comercial</div>
-<header><div class="wrap"><a class="brand" href="#inicio">Portal Pilates<small>&amp; WELLNESS</small></a><nav aria-label="Principal"><a href="#clases">Clases</a><a href="#visita">Contacto</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="#inicio">Portal Studio<small>LANÚS</small></a><nav aria-label="Principal"><a href="#estudio">El estudio</a><a href="#visita">Contacto</a></nav></div></header>
 <main>
-<section class="hero-carousel" aria-label="Descubrí Portal Pilates">
-  <div class="slides" id="hero-slides" tabindex="0" aria-label="Carrusel de clases">
-    <article class="slide slide-reformer" id="reformer">
+<section class="hero-carousel nx-hero" aria-label="Descubrí Portal Studio">
+  <div class="slides" id="hero-slides" tabindex="0" aria-label="Carrusel de Portal Studio">
+    <article class="slide nx-hero-slide" id="portada">
       <div class="slide-copy wrap">
-        <p class="eyebrow">Villa Urquiza · Buenos Aires</p>
-        <h1>Un espacio para <em>moverte.</em></h1>
-        <p>Pilates Reformer, Mat y Yoga en grupos reducidos.</p>
-        <a class="button" href="#visita">Consultar por una clase de prueba</a>
+        <p class="eyebrow">Lanús · Buenos Aires</p>
+        <h1>Portal Studio <em>Lanús.</em></h1>
+        <p>Conocé el estudio y consultá por las clases.</p>
+        <a class="button" href="#visita">Consultar por clases</a>
       </div>
     </article>
-    <article class="slide slide-mat" id="mat">
+    <article class="slide nx-hero-slide slide-lanus" id="lanus">
       <div class="slide-copy wrap">
-        <p class="eyebrow">Pilates Mat</p>
-        <h2>Movimiento y <em>control.</em></h2>
-        <p>Ejercicios sobre colchoneta que combinan precisión y respiración.</p>
-        <a class="button" href="#visita">Consultar horarios</a>
-      </div>
-    </article>
-    <article class="slide slide-yoga" id="yoga">
-      <div class="slide-copy wrap">
-        <p class="eyebrow">Yoga</p>
-        <h2>Una pausa para <em>respirar.</em></h2>
-        <p>Una práctica que combina posturas y respiración.</p>
-        <a class="button" href="#visita">Consultar horarios</a>
+        <p class="eyebrow">Lanús · Buenos Aires</p>
+        <h2>Tu próximo <em>movimiento.</em></h2>
+        <p>Escribinos para conocer las opciones de clases y los horarios.</p>
+        <a class="button" href="#visita">Ver cómo consultar</a>
       </div>
     </article>
   </div>
-  <div class="slide-controls wrap" aria-label="Elegir diapositiva">
+  <div class="slide-controls wrap" role="group" aria-label="Elegir diapositiva">
     <button type="button" aria-controls="hero-slides" aria-current="true" data-slide="0">Inicio</button>
-    <button type="button" aria-controls="hero-slides" data-slide="1">Mat</button>
-    <button type="button" aria-controls="hero-slides" data-slide="2">Yoga</button>
+    <button type="button" aria-controls="hero-slides" data-slide="1">Consultas</button>
   </div>
   <span class="image-note">Imagen ilustrativa</span>
 </section>
-<section class="section wrap" id="clases"><h2>Encontrá tu clase</h2><div class="cards">
-<article class="card"><h3>Pilates Reformer</h3><p>Movimientos guiados con el reformer y su sistema de resortes.</p></article>
-<article class="card"><h3>Pilates Mat</h3><p>Ejercicios sobre colchoneta que combinan control y respiración.</p></article>
-<article class="card"><h3>Yoga</h3><p>Una práctica que combina posturas y respiración.</p></article>
-</div></section>
-<section class="section visit" id="visita"><div class="wrap">
-<div><span class="eyebrow">Villa Urquiza · CABA</span><h2>Probá una clase</h2><p>Consultá los horarios disponibles y contanos qué clase te interesa.</p><a class="button" href="https://wa.me/5491161013561?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20por%20una%20clase%20de%20prueba." target="_blank" rel="noopener">Abrir WhatsApp</a></div>
-<div class="faq"><h3>Antes de venir</h3><details><summary>¿Cuánto dura una clase?</summary><p>Las clases duran 50 minutos.</p></details><details><summary>¿Puedo empezar desde cero?</summary><p>El estudio ofrece clases para todos los niveles.</p></details><details><summary>¿Cómo consulto los horarios?</summary><p>Escribí por WhatsApp e indicá qué tipo de clase te interesa.</p></details></div>
-</div></section>
+<section class="section wrap nx-split" id="estudio" aria-labelledby="estudio-titulo">
+  <figure class="split-media">
+    <img src="studio.webp" alt="Imagen ilustrativa de una sala de Pilates" loading="lazy">
+    <figcaption>Imagen ilustrativa</figcaption>
+  </figure>
+  <div class="split-copy">
+    <p class="eyebrow">El estudio</p>
+    <h2 id="estudio-titulo">Conocé Portal Studio</h2>
+    <p>Encontranos en Lanús, Buenos Aires. Si querés empezar, escribinos para conocer las clases y coordinar tu visita.</p>
+    <a href="https://www.instagram.com/portalstudio.lanus/" target="_blank" rel="noopener">Ver Instagram de Portal Studio</a>
+  </div>
+</section>
+<section class="section visit" id="visita" aria-labelledby="contacto-titulo">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Lanús · Buenos Aires</p>
+      <h2 id="contacto-titulo">Consultá por clases</h2>
+      <p>Mandanos un mensaje por Instagram para consultar horarios, disponibilidad y cómo llegar.</p>
+      <a class="button" href="https://www.instagram.com/portalstudio.lanus/" target="_blank" rel="noopener">Ir a Instagram</a>
+    </div>
+    <div class="faq">
+      <h3>Preguntas frecuentes</h3>
+      <details><summary>¿Cómo consulto los horarios?</summary><p>Escribí por Instagram e indicá qué días y horarios te quedan cómodos.</p></details>
+      <details><summary>¿Cómo llego al estudio?</summary><p>El estudio está en Lanús. Pedí la dirección exacta y las indicaciones por Instagram antes de ir.</p></details>
+    </div>
+  </div>
+</section>
 </main>
-<footer><div class="wrap"><span>Portal Pilates &amp; Wellness · Villa Urquiza</span><span>Demo comercial diseñada por <strong>Lanzate</strong></span></div></footer>
+<footer><div class="wrap"><span>Portal Studio · Lanús</span><span>Demo comercial diseñada por <strong>Lanzate</strong></span></div></footer>
 <script>
 const carousel = document.querySelector('.slides');
 const slides = Array.from(carousel.children);
