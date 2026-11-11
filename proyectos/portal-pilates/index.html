@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Portal Studio Lanús | Demo de Lanzate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#27332a;--green:#344c39;--paper:#f8f5ed;--line:#d6d6c8;--serif:"Instrument Serif",Georgia,serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.55}a{color:inherit}a:focus-visible,summary:focus-visible,button:focus-visible,.slides:focus-visible{outline:3px solid #b57841;outline-offset:4px}.wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}.demo{background:var(--green);color:white;text-align:center;padding:7px 12px;font-size:.75rem;letter-spacing:.06em}header .wrap,footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}.brand{font-family:var(--serif);font-size:2rem;line-height:1;text-decoration:none}.brand small{display:block;font:600 .58rem "DM Sans",sans-serif;letter-spacing:.23em;margin-top:5px}nav{display:flex;gap:22px}nav a{text-decoration:none;font-size:.9rem}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.74rem;font-weight:700}h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1;margin:0}h1{font-size:clamp(3.4rem,6vw,6rem);margin-block:16px}h1 em{color:#536448}h2{font-size:clamp(2.7rem,5vw,4rem)}h3{font-size:2.15rem}.button{display:inline-block;background:var(--green);color:white;text-decoration:none;border-radius:32px;padding:13px 20px;font-weight:600;font-size:.9rem}.button:hover{background:#24392b}.section{padding-block:70px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:25px}.card{border:1px solid var(--line);padding:25px}.card p{margin-bottom:0}.visit{background:#e9ebdf}.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:36px}.faq details{border-bottom:1px solid #c1c8b6;padding:13px 0}.faq summary{cursor:pointer;font-weight:600}footer{font-size:.78rem}@media(max-width:680px){.wrap{width:calc(100% - 32px)}.cards,.visit .wrap{grid-template-columns:1fr}.section{padding-block:42px}nav{gap:12px}footer .wrap{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.hero-carousel{position:relative;background:#344c39;color:white}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.slides::-webkit-scrollbar{display:none}
+.slide{display:grid;align-items:center;flex:0 0 100%;min-height:clamp(480px,67vh,760px);scroll-snap-align:start;background-image:linear-gradient(90deg,rgba(20,31,24,.93),rgba(20,31,24,.62) 47%,rgba(20,31,24,.20)),url(studio.webp);background-size:cover;background-position:center}
+.slide-lanus{background-image:linear-gradient(120deg,#203b31,#4b6351)}
+.nx-split{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(24px,6vw,74px)}
+.split-media{margin:0}
+.split-media img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.split-media figcaption{margin-top:6px;font-size:.75rem}
+@media(max-width:680px){.nx-split{grid-template-columns:1fr}.hero-carousel .slide-lanus{background-image:linear-gradient(120deg,#203b31,#4b6351)}}
+.slide-copy{padding-block:56px 108px}
+.slide-copy h1,.slide-copy h2{font-size:clamp(3.25rem,8vw,7rem);max-width:8em;margin-block:12px 16px}
+.slide-copy em{color:#e3eacb}
+.slide-copy .button{background:#f8f5ed;color:#27332a}
+.slide-copy .button:hover{background:#e3eacb}
+.slide-controls{position:absolute;left:50%;bottom:42px;transform:translateX(-50%);display:flex;gap:8px;pointer-events:none}
+.slide-controls button{pointer-events:auto;border:1px solid #f8f5ed;border-radius:24px;min-height:44px;padding:8px 15px;background:#26362c;color:white;font:600 .8rem "DM Sans",sans-serif;cursor:pointer}
+.slide-controls button[aria-current]{background:#f8f5ed;color:#27332a}
+.image-note{position:absolute;right:16px;bottom:10px;font-size:.7rem;color:white;background:#26362c;padding:2px 7px;border-radius:10px}
+@media(max-width:680px){.slide{min-height:510px;background-size:cover;background-image:linear-gradient(90deg,rgba(20,31,24,.88),rgba(20,31,24,.48)),url(studio.webp)}}
+</style>
+</head>
+<body id="inicio">
+<div class="demo"><a href="../../#proyectos">Volver a Proyectos de Lanzate</a> · Demo comercial</div>
+<header><div class="wrap"><a class="brand" href="#inicio">Portal Studio<small>LANÚS</small></a><nav aria-label="Principal"><a href="#estudio">El estudio</a><a href="#visita">Contacto</a></nav></div></header>
+<main>
+<section class="hero-carousel nx-hero" aria-label="Descubrí Portal Studio">
+  <div class="slides" id="hero-slides" tabindex="0" aria-label="Carrusel de Portal Studio">
+    <article class="slide nx-hero-slide" id="portada">
+      <div class="slide-copy wrap">
+        <p class="eyebrow">Lanús · Buenos Aires</p>
+        <h1>Portal Studio <em>Lanús.</em></h1>
+        <p>Conocé el estudio y consultá por las clases.</p>
+        <a class="button" href="#visita">Consultar por clases</a>
+      </div>
+    </article>
+    <article class="slide nx-hero-slide slide-lanus" id="lanus">
+      <div class="slide-copy wrap">
+        <p class="eyebrow">Lanús · Buenos Aires</p>
+        <h2>Tu próximo <em>movimiento.</em></h2>
+        <p>Escribinos para conocer las opciones de clases y los horarios.</p>
+        <a class="button" href="#visita">Ver cómo consultar</a>
+      </div>
+    </article>
+  </div>
+  <div class="slide-controls wrap" role="group" aria-label="Elegir diapositiva">
+    <button type="button" aria-controls="hero-slides" aria-current="true" data-slide="0">Inicio</button>
+    <button type="button" aria-controls="hero-slides" data-slide="1">Consultas</button>
+  </div>
+  <span class="image-note">Imagen ilustrativa</span>
+</section>
+<section class="section wrap nx-split" id="estudio" aria-labelledby="estudio-titulo">
+  <figure class="split-media">
+    <img src="studio.webp" alt="Imagen ilustrativa de una sala de Pilates" loading="lazy">
+    <figcaption>Imagen ilustrativa</figcaption>
+  </figure>
+  <div class="split-copy">
+    <p class="eyebrow">El estudio</p>
+    <h2 id="estudio-titulo">Conocé Portal Studio</h2>
+    <p>Encontranos en Lanús, Buenos Aires. Si querés empezar, escribinos para conocer las clases y coordinar tu visita.</p>
+    <a href="https://www.instagram.com/portalstudio.lanus/" target="_blank" rel="noopener">Ver Instagram de Portal Studio</a>
+  </div>
+</section>
+<section class="section visit" id="visita" aria-labelledby="contacto-titulo">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Lanús · Buenos Aires</p>
+      <h2 id="contacto-titulo">Consultá por clases</h2>
+      <p>Mandanos un mensaje por Instagram para consultar horarios, disponibilidad y cómo llegar.</p>
+      <a class="button" href="https://www.instagram.com/portalstudio.lanus/" target="_blank" rel="noopener">Ir a Instagram</a>
+    </div>
+    <div class="faq">
+      <h3>Preguntas frecuentes</h3>
+      <details><summary>¿Cómo consulto los horarios?</summary><p>Escribí por Instagram e indicá qué días y horarios te quedan cómodos.</p></details>
+      <details><summary>¿Cómo llego al estudio?</summary><p>El estudio está en Lanús. Pedí la dirección exacta y las indicaciones por Instagram antes de ir.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>Portal Studio · Lanús</span><span>Demo comercial diseñada por <strong>Lanzate</strong></span></div></footer>
+<script>
+const carousel = document.querySelector('.slides');
+const slides = Array.from(carousel.children);
+const controls = Array.from(document.querySelectorAll('[data-slide]'));
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+controls.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    carousel.scrollTo({
+      left: index * carousel.clientWidth,
+      behavior: reducedMotion.matches ? 'instant' : 'smooth'
+    });
+  });
+});
+
+function updateCarousel() {
+  const current = Math.round(carousel.scrollLeft / carousel.clientWidth);
+  controls.forEach((button, index) => {
+    if (index === current) button.setAttribute('aria-current', 'true');
+    else button.removeAttribute('aria-current');
+    slides[index].inert = index !== current;
+  });
+}
+
+carousel.addEventListener('scroll', updateCarousel, { passive: true });
+updateCarousel();
+</script>
+</body>
+</html>
