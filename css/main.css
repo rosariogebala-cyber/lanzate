@@ -692,3 +692,21 @@ p, li, blockquote, figcaption { text-wrap: pretty; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+
+/* Quién está detrás */
+.about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 56px; align-items: center; }
+.about-photo { position: relative; display: grid; place-items: center; aspect-ratio: 6 / 7; border-radius: 28px; overflow: hidden; background: linear-gradient(160deg, var(--violet) 0%, #1c1250 100%); }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+.about-initials { font: 800 clamp(4rem, 9vw, 7rem)/1 var(--display); color: var(--lime); letter-spacing: -0.04em; }
+.about-copy h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); font-weight: 800; margin: 6px 0 18px; }
+.about-copy > p:not(.kicker) { margin-bottom: 14px; color: var(--ink-2); font-size: 1.05rem; }
+.about-facts { display: grid; gap: 12px; margin: 26px 0 30px; padding: 0; list-style: none; }
+.about-facts li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--muted); }
+.about-facts b { color: var(--ink); }
+.about-facts i { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: var(--violet-soft); color: var(--violet); font-size: 17px; }
+.guarantee.section-tint { padding-bottom: 72px; }
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-photo { max-width: 360px; width: 100%; margin: 0 auto; }
+}

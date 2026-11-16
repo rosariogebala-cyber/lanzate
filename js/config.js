@@ -15,7 +15,7 @@ window.SITE = {
   },
   promo: {
     activa: true,
-    texto: "Precio de lanzamiento: hasta 25% off en el pago inicial",
+    texto: "Precio de lanzamiento para los primeros clientes",
     hasta: "30 de noviembre"
   },
   planes: [
@@ -24,7 +24,6 @@ window.SITE = {
       nombre: "Express",
       para: "Para salir online ya, con lo esencial para que te contacten.",
       inicial: 149000,
-      antes: 199000,
       mensual: 15000,
       entrega: "Entrega rápida",
       mp: "",
@@ -42,7 +41,6 @@ window.SITE = {
       nombre: "Negocio",
       para: "Para que te encuentren en Google y te elijan frente a la competencia.",
       inicial: 249000,
-      antes: 329000,
       mensual: 25000,
       entrega: "Entrega rápida",
       destacado: true,
@@ -61,7 +59,6 @@ window.SITE = {
       nombre: "Pro",
       para: "Para vender más: turnos online, más secciones y medición de resultados.",
       inicial: 399000,
-      antes: 529000,
       mensual: 39000,
       entrega: "Entrega prioritaria",
       mp: "",

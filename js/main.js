@@ -82,11 +82,11 @@
   var plansEl = document.querySelector("[data-plans]");
   if (plansEl) {
     plansEl.innerHTML = plans.map(function (p) {
-      var off = p.antes ? Math.round((1 - p.inicial / p.antes) * 100) : 0;
+      var launch = site.promo && site.promo.activa;
       return '<article class="plan' + (p.destacado ? " is-featured" : "") + '">' +
-        (p.destacado ? '<span class="plan-badge"><i class="bi bi-star-fill"></i> Más elegido</span>' : "") +
+        (p.destacado ? '<span class="plan-badge"><i class="bi bi-star-fill"></i> Recomendado</span>' : "") +
         '<header class="plan-head"><h3>' + esc(p.nombre) + "</h3>" +
-        (off ? '<span class="plan-off">' + off + "% off</span>" : "") + "</header>" +
+        (launch ? '<span class="plan-off">Lanzamiento</span>' : "") + "</header>" +
         '<p class="plan-for">' + esc(p.para) + "</p>" +
         '<div class="plan-price">' +
         (p.antes ? '<s class="plan-before">' + price(p.antes) + "</s>" : "") +
