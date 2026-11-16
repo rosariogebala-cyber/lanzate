@@ -126,6 +126,11 @@
     a.target = "_blank";
     a.rel = "noopener";
   });
+  document.querySelectorAll("[data-wa-boceto]").forEach(function (a) {
+    a.href = waUrl("Hola, quiero un boceto gratis de mi landing.\n\nMi negocio:\nRubro:\nInstagram o web:");
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
   document.querySelectorAll("[data-wa-rubro]").forEach(function (a) {
     a.href = waUrl("Hola, quiero una landing para " + a.getAttribute("data-wa-rubro") + ". ¿Cómo quedaría?");
     a.target = "_blank";

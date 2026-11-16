@@ -3,7 +3,7 @@
   --night: #07081c;
   --violet-2: #8b74ff;
   position: relative;
-  height: 584vh;
+  height: 280vh;
   margin-top: -72px;
   color: #fff;
 }
@@ -777,4 +777,10 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
   .hm { height: auto; }
   .hm-stage { position: relative; }
   .hm *, .hm *::before, .hm *::after { animation: none !important; transition: none !important; }
+}
+
+/* CTAs del hero apilados en celular */
+@media (max-width: 600px) {
+  .hm-ctas { flex-direction: column; width: 100%; max-width: 320px; }
+  .hm-ctas .btn { justify-content: center; text-align: center; }
 }

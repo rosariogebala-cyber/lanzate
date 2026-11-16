@@ -710,3 +710,17 @@ p, li, blockquote, figcaption { text-wrap: pretty; }
   .about-grid { grid-template-columns: 1fr; gap: 32px; }
   .about-photo { max-width: 360px; width: 100%; margin: 0 auto; }
 }
+
+/* Boceto gratis */
+.boceto { padding: 0 0 96px; }
+.boceto-box { display: flex; align-items: center; gap: 40px; padding: 44px 48px; border-radius: 28px; background: linear-gradient(135deg, var(--violet) 0%, #1c1250 100%); color: #fff; }
+.boceto-copy { flex: 1; }
+.boceto-copy .kicker { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .2); color: var(--lime); }
+.boceto-copy h2 { margin: 8px 0 10px; font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 800; }
+.boceto-copy p:not(.kicker) { max-width: 560px; color: #d6d2f7; }
+.boceto .btn { flex: none; }
+@media (max-width: 900px) {
+  .boceto { padding-bottom: 72px; }
+  .boceto-box { flex-direction: column; align-items: flex-start; gap: 24px; padding: 32px 24px; }
+  .boceto .btn { width: 100%; justify-content: center; }
+}
