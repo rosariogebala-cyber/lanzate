@@ -127,7 +127,7 @@
     a.rel = "noopener";
   });
   document.querySelectorAll("[data-wa-boceto]").forEach(function (a) {
-    a.href = waUrl("Hola, quiero un boceto gratis de mi landing.\n\nMi negocio:\nRubro:\nInstagram:");
+    a.href = waUrl("Hola, quiero un boceto gratis de mi landing.\n\nMi negocio:\nRubro:\nInstagram (si tenés):");
     a.target = "_blank";
     a.rel = "noopener";
   });
