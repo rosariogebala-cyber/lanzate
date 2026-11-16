@@ -153,7 +153,11 @@
 .footer-fiscal { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
 .footer-fiscal a { display: inline-flex; align-items: center; gap: 6px; color: inherit; }
 .footer-fiscal a:hover { color: #fff; }
-.footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; }
+.footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; }
+@media (min-width: 901px) and (max-width: 1080px) {
+  .footer-grid { grid-template-columns: repeat(4, 1fr); }
+  .footer-grid > :first-child { grid-column: 1 / -1; }
+}
 @media (max-width: 900px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid > :first-child { grid-column: 1 / -1; }

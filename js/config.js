@@ -5,6 +5,13 @@ window.SITE = {
   marca: "Lanzate",
   email: "hola@example.com",
   whatsapp: "5491123456789",
+  /* Medición: pegá acá los IDs cuando los tengas. Mientras estén vacíos no se carga nada.
+     ga4: el "ID de medición" de Google Analytics (G-XXXXXXX).
+     metaPixel: el número del Píxel de Meta (Administrador de eventos de Meta). */
+  medicion: {
+    ga4: "",
+    metaPixel: ""
+  },
   /* Datos fiscales: se muestran en el pie y en las páginas legales cuando están completos.
      dataFiscal es el link del QR de "Data Fiscal" que da ARCA. */
   legal: {

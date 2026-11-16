@@ -6,7 +6,7 @@
   var waBase = "https://wa.me/" + site.whatsapp;
 
   document.querySelectorAll("[data-wa-link]").forEach(function (a) {
-    a.href = waBase;
+    if (a.href.indexOf("wa.me") === -1) a.href = waBase;
     a.target = "_blank";
     a.rel = "noopener";
   });
