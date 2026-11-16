@@ -16,6 +16,19 @@
       "&body=" + encodeURIComponent("Hola, quiero contratar el plan " + plan.nombre + " (" + price(plan.inicial) + " + " + price(plan.mensual) + "/mes).\n\nNegocio:\nRubro:\nWhatsApp:");
   }
 
+  /* Proyectos: las landings marcadas como ejemplo en el panel de Lanzate_modulos (js/ejemplos.js) */
+  var examplesBox = document.querySelector("[data-examples]");
+  var examples = window.EJEMPLOS || [];
+  if (examplesBox && examples.length) {
+    examplesBox.innerHTML = examples.map(function (ex, i) {
+      var img = ex.captura || ex.portada;
+      return '<a class="example' + (i === 0 ? " is-wide" : "") + '" href="' + esc(ex.url) + '" target="_blank" rel="noopener">' +
+        '<span class="example-shot">' + (img ? '<img src="' + esc(img) + '" alt="Landing de ' + esc(ex.nombre) + '" width="800" height="500" loading="lazy" decoding="async">' : "") + "</span>" +
+        '<span class="example-info"><span class="tag">' + esc(ex.rubro || "Landing") + (ex.demo ? " · Demo" : "") + "</span><strong>" + esc(ex.nombre) + "</strong>" +
+        '<span class="example-link">Ver en vivo <i class="bi bi-eye"></i></span></span></a>';
+    }).join("");
+  }
+
   /* Aviso de promo */
   var promo = document.querySelector("[data-promo]");
   var promoKey = "lanzate-promo-cerrada";
