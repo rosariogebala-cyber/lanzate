@@ -763,3 +763,7 @@ p, li, blockquote, figcaption { text-wrap: pretty; }
   .rubro-points { grid-template-columns: 1fr; }
   .rubro-shot { transform: none; }
 }
+
+/* Auditoría 18/11 · Objetivos táctiles de al menos 24 × 24 px */
+.crumbs a { display: inline-block; padding-block: 4px; }
+.faq-help-mail, a[data-mail-link] { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; }
