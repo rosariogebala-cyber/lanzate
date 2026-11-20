@@ -47,11 +47,21 @@
   function setNav(open) {
     nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", String(open));
-    toggle.innerHTML = open ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+    toggle.innerHTML = open ? '<i class="bi bi-x-lg" aria-hidden="true"></i>' : '<i class="bi bi-list" aria-hidden="true"></i>';
+    toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
     document.body.classList.toggle("nav-open", open);
   }
   toggle.addEventListener("click", function () { setNav(!nav.classList.contains("is-open")); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && nav.classList.contains("is-open")) {
+      setNav(false);
+      toggle.focus();
+    }
+  });
   nav.addEventListener("click", function (e) { if (e.target.closest("a")) setNav(false); });
+  document.addEventListener("click", function (e) {
+    if (nav.classList.contains("is-open") && !nav.contains(e.target) && !toggle.contains(e.target)) setNav(false);
+  });
 
   /* Sombra del header al bajar; botón de WhatsApp visible al bajar y frenado arriba del footer */
   var header = document.querySelector("[data-header]");
