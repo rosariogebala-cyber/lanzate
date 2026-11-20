@@ -411,7 +411,7 @@ p, li, blockquote, figcaption { text-wrap: pretty; }
 .avatar { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--violet-soft); color: var(--violet); font-weight: 700; }
 
 /* Garantía */
-.guarantee { padding: 0 0 24px; background: #fff; }
+.guarantee { padding: 0; background: none; }
 .guarantee-row {
   display: flex;
   align-items: center;
