@@ -512,8 +512,9 @@ body:not(.nav-open) .site-header.is-hero .nav-toggle { color: #fff; }
 @keyframes faq-online { 50% { box-shadow: 0 0 0 5px rgba(37, 211, 102, .25); } }
 .faq-help h3 { margin: 0; font-size: 1.1rem; }
 .section-head .faq-help p { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
-.section-head .faq-help-btn { grid-column: 1 / -1; justify-content: center; gap: 8px; background: var(--wa); color: #fff; box-shadow: 0 12px 24px -12px rgba(37, 211, 102, .9); }
-.section-head .faq-help-btn:hover { background: #1fbe5b; color: #fff; }
+/* WCAG AA: dark WhatsApp green keeps white body text legible. */
+.section-head .faq-help-btn { grid-column: 1 / -1; justify-content: center; gap: 8px; background: #08783d; color: #fff; box-shadow: 0 12px 24px -12px rgba(8, 120, 61, .55); }
+.section-head .faq-help-btn:hover { background: #065f31; color: #fff; }
 .section-head .faq-help-mail { grid-column: 1 / -1; justify-self: center; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--ink-2); text-decoration: none; }
 .section-head .faq-help-mail:hover { color: var(--violet); }
 @media (max-width: 380px) {

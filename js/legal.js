@@ -126,6 +126,7 @@
     setupRegret(body);
     body.scrollTop = 0;
     box.showModal();
+    body.focus();
     document.documentElement.classList.add("has-lightbox");
     requestAnimationFrame(function () { box.classList.add("is-open"); });
     return true;
@@ -165,7 +166,7 @@
         '<a class="web-open" data-web-open target="_blank" rel="noopener" aria-label="Abrir en otra pestaña"><i class="bi bi-box-arrow-up-right"></i><span>Abrir</span></a>' +
         '<button class="lightbox-close" type="button" aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>' +
       "</div>" +
-      '<div class="web-stage" data-view="desktop" tabindex="-1" autofocus><span class="web-loading"><span><i class="bi bi-arrow-repeat"></i> Cargando…</span></span><iframe title="Ejemplo de landing"></iframe></div>' +
+      '<div class="web-stage" data-view="desktop" tabindex="-1" autofocus><span class="web-loading"><span><i class="bi bi-arrow-repeat"></i> Cargando…</span></span><iframe title="Ejemplo de landing" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' +
     "</div>";
   document.body.appendChild(demo);
   var frame = demo.querySelector("iframe");
@@ -207,6 +208,7 @@
       stage.classList.remove("is-loaded");
       frame.src = a.href;
       demo.showModal();
+      demo.querySelector(".lightbox-close").focus();
       document.documentElement.classList.add("has-lightbox");
       requestAnimationFrame(function () { demo.classList.add("is-open"); });
     });
