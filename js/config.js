@@ -57,7 +57,7 @@ window.SITE = {
       mp: "",
       incluye: [
         "Todo lo incluido en Express",
-        "Dominio propio .com.ar incluido",
+        "Conexión y gestión técnica de tu dominio .com.ar (el registro y la renovación los paga el cliente)",
         "Formulario de contacto a tu mail",
         "Mapa, horarios y reseñas de Google",
         "Asistencia inicial para configurar Google Business Profile, sujeta a verificación de Google",
@@ -90,7 +90,7 @@ window.SITE = {
     ["Entrega", "A coordinar", "A coordinar", "Prioritaria según disponibilidad"],
     ["Rondas de revisión inicial", "1", "2", "3"],
     ["Secciones", "Hasta 4", "Hasta 7", "Hasta 10"],
-    ["Dominio propio .com.ar", false, true, true],
+    ["Conexión y gestión técnica del dominio propio", false, true, true],
     ["Hosting y SSL", true, true, true],
     ["Botón de WhatsApp", true, true, true],
     ["Formulario de contacto", false, true, true],
