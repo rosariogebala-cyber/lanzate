@@ -43,7 +43,7 @@ window.SITE = {
         "Hosting y certificado de seguridad (SSL)",
         "Subdominio tunegocio.lanzate.com.ar",
         "2 solicitudes de publicación desde el portal por mes",
-        "1 cambio asistido por mes (hasta 15 min)"
+        "1 cambio asistido por mes"
       ]
     },
     {
@@ -62,7 +62,7 @@ window.SITE = {
         "Mapa, horarios y reseñas de Google",
         "Asistencia inicial para configurar Google Business Profile, sujeta a verificación de Google",
         "4 solicitudes de publicación desde el portal por mes",
-        "3 cambios asistidos por mes (hasta 45 min)"
+        "3 cambios asistidos por mes"
       ]
     },
     {
@@ -81,7 +81,7 @@ window.SITE = {
         "Analítica ampliada, sujeta a configuración y consentimientos",
         "Soporte prioritario en horario de atención",
         "8 solicitudes de publicación desde el portal por mes",
-        "5 cambios asistidos por mes (hasta 90 min)"
+        "5 cambios asistidos por mes"
       ]
     }
   ],
@@ -102,7 +102,6 @@ window.SITE = {
     ["Publicación con aprobación humana", true, true, true],
     ["Solicitudes de publicación desde el portal / mes", "2", "4", "8"],
     ["Cambios asistidos por mes", "1", "3", "5"],
-    ["Tiempo de asistencia incluido / mes", "15 min", "45 min", "90 min"],
     ["Backend o integraciones a medida", "Se cotiza aparte", "Se cotiza aparte", "Se cotiza aparte"]
   ]
 };
