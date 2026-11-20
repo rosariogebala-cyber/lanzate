@@ -126,6 +126,7 @@
     setupRegret(body);
     body.scrollTop = 0;
     box.showModal();
+    body.focus();
     document.documentElement.classList.add("has-lightbox");
     requestAnimationFrame(function () { box.classList.add("is-open"); });
     return true;
@@ -207,6 +208,7 @@
       stage.classList.remove("is-loaded");
       frame.src = a.href;
       demo.showModal();
+      demo.querySelector(".lightbox-close").focus();
       document.documentElement.classList.add("has-lightbox");
       requestAnimationFrame(function () { demo.classList.add("is-open"); });
     });
