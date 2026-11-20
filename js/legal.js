@@ -163,7 +163,7 @@
           '<button type="button" data-web-view="desktop" aria-pressed="true"><i class="bi bi-laptop"></i><span>Computadora</span></button>' +
           '<button type="button" data-web-view="mobile" aria-pressed="false"><i class="bi bi-phone"></i><span>Celular</span></button>' +
         "</span>" +
-        '<a class="web-open" data-web-open target="_blank" rel="noopener" aria-label="Abrir en otra pestaña"><i class="bi bi-box-arrow-up-right"></i><span>Abrir</span></a>' +
+        '<a class="web-open" data-web-open href="#proyectos" target="_blank" rel="noopener" aria-label="Abrir en otra pestaña"><i class="bi bi-box-arrow-up-right"></i><span>Abrir</span></a>' +
         '<button class="lightbox-close" type="button" aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>' +
       "</div>" +
       '<div class="web-stage" data-view="desktop" tabindex="-1" autofocus><span class="web-loading"><span><i class="bi bi-arrow-repeat"></i> Cargando…</span></span><iframe title="Ejemplo de landing" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' +
