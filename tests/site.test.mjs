@@ -5,7 +5,7 @@ import { readFileSync, existsSync } from 'node:fs';
 const read = path => readFileSync(new URL('../' + path, import.meta.url), 'utf8');
 const html = read('index.html');
 // Ignore examples of markup inside HTML comments: they are not live asset references.
-const activeHtml = html.replace(/<!--[\\s\\S]*?-->/g, '');
+const activeHtml = html.replace(/<!--[\s\S]*?-->/g, '');
 test('Main document has lang, title, description and one main', () => {
   assert.match(html, /<html[^>]+lang="es-AR"/);
   assert.match(html, /<title>[^<]+<\/title>/);
@@ -26,7 +26,7 @@ test('Sitemap is present and has valid public URLs', () => {
   }
 });
 test('Local assets referenced by homepage exist', () => {
-  for (const [, path] of html.matchAll(/(?:src|href)="((?:css|js|img)\/[^"]+)"/g)) {
+  for (const [, path] of activeHtml.matchAll(/(?:src|href)="((?:css|js|img)\/[^"]+)"/g)) {
     assert.ok(existsSync(new URL('../' + path.split('?')[0], import.meta.url)), path);
   }
 });
