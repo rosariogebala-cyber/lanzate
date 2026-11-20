@@ -24,3 +24,18 @@ Rama de trabajo: `qa/fases-2-3-4-20261120`. No publicar sin revisión.
 - Pruebas de humo y CI agregados.
 
 Estas pruebas automatizadas NO equivalen a una certificación WCAG, una medición de Core Web Vitals ni una auditoría de seguridad del backend. No se modificó la rama main.
+
+## Auditoría automatizada en navegador (requiere Node.js)
+En una terminal, desde la raíz del proyecto:
+```sh
+npm install --no-save playwright @axe-core/playwright
+npx playwright install chromium
+python3 -m http.server 8000
+```
+En otra terminal, dentro de la misma carpeta:
+```sh
+node tests/browser-audit.mjs
+```
+El script guarda capturas para 320, 375, 768, 1024 y 1440 px y un informe JSON en `qa-reports/`. Comprueba overflow horizontal, errores JavaScript, menú móvil y reglas axe WCAG 2.2 AA. Si detecta problemas, termina con código distinto de cero: **esto es esperado durante el diagnóstico**.
+
+Lighthouse, validación W3C, VoiceOver, zoom 200/400 %, modales y seguridad de las demos siguen requiriendo ejecución y revisión humana. El script no los certifica.
