@@ -108,7 +108,7 @@
   top: 50%;
   z-index: 3;
   width: min(290px, 31svh);
-  aspect-ratio: 9 / 19;
+  aspect-ratio: 9 / 17;
   translate: -50% -42%;
   transform: translateY(calc((1 - var(--rise)) * 72svh - var(--lift))) rotateX(calc((1 - var(--rise)) * 22deg));
   transform-origin: 50% 100%;
