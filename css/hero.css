@@ -3,7 +3,8 @@
   --night: #07081c;
   --violet-2: #8b74ff;
   position: relative;
-  height: 280vh;
+  height: 280vh; /* Fallback para navegadores sin svh */
+  height: 280svh; /* Reserva estable durante cambios de barra del navegador móvil */
   margin-top: -72px;
   color: #fff;
 }
