@@ -42,7 +42,7 @@ window.SITE = {
         "Botón de WhatsApp siempre visible",
         "Hosting y certificado de seguridad (SSL)",
         "Subdominio tunegocio.lanzate.com.ar",
-        "2 solicitudes de publicación desde el portal por mes",
+        "2 cambios desde el portal de cliente por mes",
         "1 cambio asistido por mes"
       ]
     },
