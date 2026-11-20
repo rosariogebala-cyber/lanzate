@@ -54,6 +54,14 @@ try {
         if (closed.expanded !== 'false' || closed.menuOpenClass || !closed.focusRestored) {
           findings.push({ width, type: 'navigation', message: 'Escape did not close menu and restore focus', closed });
         }
+        // Verify a second click closes the menu, and outside click closes it too.
+        await toggle.click();
+        const reopened = await toggle.getAttribute('aria-expanded');
+        await page.locator('main').click({ position: { x: 5, y: 5 }, force: true });
+        const outsideClosed = await toggle.getAttribute('aria-expanded');
+        if (reopened !== 'true' || outsideClosed !== 'false') {
+          findings.push({ width, type: 'navigation', message: 'Outside click failed to close menu', reopened, outsideClosed });
+        }
       }
     }
     await page.screenshot({ path: `qa-reports/home-${width}.png`, fullPage: true });
