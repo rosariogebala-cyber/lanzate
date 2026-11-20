@@ -13,7 +13,10 @@ const findings = [];
 await mkdir('qa-reports', { recursive: true });
 try {
   for (const width of widths) {
-    const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
+    // axe-core/playwright opens an auxiliary page in the same browser context.
+    // A context created by browser.newPage() does not allow that operation.
+    const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
+    const page = await context.newPage();
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     const response = await page.goto(origin, { waitUntil: 'networkidle' });
@@ -46,7 +49,7 @@ try {
         findings.push({ width, type: 'navigation', message: 'Escape did not close menu' });
       }
     }
-    await page.close();
+    await context.close();
   }
 } finally {
   await browser.close();
