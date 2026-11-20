@@ -102,6 +102,6 @@ window.SITE = {
     ["Publicación con aprobación humana", true, true, true],
     ["Solicitudes de publicación desde el portal / mes", "2", "4", "8"],
     ["Cambios asistidos por mes", "1", "3", "5"],
-    ["Backend o integraciones a medida", "Se cotiza aparte", "Se cotiza aparte", "Se cotiza aparte"]
+    ["Funcionalidades e integraciones adicionales", "Se cotizan aparte", "Se cotizan aparte", "Se cotizan aparte"]
   ]
 };
