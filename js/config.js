@@ -76,7 +76,7 @@ window.SITE = {
       incluye: [
         "Todo lo incluido en Negocio",
         "Hasta 10 secciones a elección",
-        "Podés pedir agregar módulos nuevos",
+        "Podés solicitar módulos adicionales con presupuesto previo",
         "Componentes avanzados y galerías de contenido",
         "Galería de fotos y videos",
         "Analítica ampliada, sujeta a configuración y consentimientos",
@@ -101,7 +101,7 @@ window.SITE = {
     ["Portal privado de edición", true, true, true],
     ["Vista previa de cambios", true, true, true],
     ["Publicación con aprobación humana", true, true, true],
-    ["Pedir módulos nuevos", false, false, true],
+    ["Solicitar módulos adicionales (con presupuesto)", true, true, true],
     ["Envíos de cambios desde tu portal / mes", "10", "30", "Ilimitados"],
     ["Cambios asistidos por mes", "1", "3", "5"],
     ["Funcionalidades e integraciones adicionales", "Se cotizan aparte", "Se cotizan aparte", "Se cotizan aparte"]
