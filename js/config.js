@@ -42,7 +42,7 @@ window.SITE = {
         "Botón de WhatsApp siempre visible",
         "Hosting y certificado de seguridad (SSL)",
         "Subdominio tunegocio.lanzate.com.ar",
-        "2 cambios desde el portal de cliente por mes",
+        "Hasta 10 envíos de cambios de contenido por mes desde tu portal",
         "1 cambio asistido por mes"
       ]
     },
@@ -61,7 +61,7 @@ window.SITE = {
         "Formulario de contacto a tu mail",
         "Mapa, horarios y reseñas de Google",
         "Asistencia inicial para configurar Google Business Profile, sujeta a verificación de Google",
-        "4 solicitudes de publicación desde el portal por mes",
+        "Hasta 30 envíos de cambios de contenido por mes desde tu portal",
         "3 cambios asistidos por mes"
       ]
     },
@@ -76,11 +76,12 @@ window.SITE = {
       incluye: [
         "Todo lo incluido en Negocio",
         "Hasta 10 secciones a elección",
+        "Podés pedir agregar módulos nuevos",
         "Componentes avanzados y galerías de contenido",
         "Galería de fotos y videos",
         "Analítica ampliada, sujeta a configuración y consentimientos",
         "Soporte prioritario en horario de atención",
-        "8 solicitudes de publicación desde el portal por mes",
+        "Envíos ilimitados de cambios de contenido desde tu portal",
         "5 cambios asistidos por mes"
       ]
     }
@@ -100,7 +101,8 @@ window.SITE = {
     ["Portal privado de edición", true, true, true],
     ["Vista previa de cambios", true, true, true],
     ["Publicación con aprobación humana", true, true, true],
-    ["Solicitudes de publicación desde el portal / mes", "2", "4", "8"],
+    ["Pedir módulos nuevos", false, false, true],
+    ["Envíos de cambios desde tu portal / mes", "10", "30", "Ilimitados"],
     ["Cambios asistidos por mes", "1", "3", "5"],
     ["Funcionalidades e integraciones adicionales", "Se cotizan aparte", "Se cotizan aparte", "Se cotizan aparte"]
   ]
