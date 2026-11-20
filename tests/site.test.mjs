@@ -4,6 +4,8 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 const read = path => readFileSync(new URL('../' + path, import.meta.url), 'utf8');
 const html = read('index.html');
+// Ignore examples of markup inside HTML comments: they are not live asset references.
+const activeHtml = html.replace(/<!--[\\s\\S]*?-->/g, '');
 test('Main document has lang, title, description and one main', () => {
   assert.match(html, /<html[^>]+lang="es-AR"/);
   assert.match(html, /<title>[^<]+<\/title>/);
