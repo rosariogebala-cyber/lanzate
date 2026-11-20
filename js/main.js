@@ -51,7 +51,12 @@
     toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
     document.body.classList.toggle("nav-open", open);
   }
-  toggle.addEventListener("click", function () { setNav(!nav.classList.contains("is-open")); });
+  // Stop bubbling: replacing the icon in setNav() detaches the original click target.
+  // Without this, the document outside-click handler immediately closes the menu.
+  toggle.addEventListener("click", function (e) {
+    e.stopPropagation();
+    setNav(!nav.classList.contains("is-open"));
+  });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && nav.classList.contains("is-open")) {
       setNav(false);
