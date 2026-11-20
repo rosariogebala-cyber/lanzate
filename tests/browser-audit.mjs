@@ -28,6 +28,34 @@ try {
     if (overflow.documentWidth > overflow.viewportWidth + 1) {
       findings.push({ width, type: 'horizontal-overflow', ...overflow });
     }
+    if (width === 375) {
+      // Check navigation before screenshot and axe, which can alter scroll/focus.
+      const toggle = page.locator('[data-nav-toggle]');
+      const menu = page.locator('[data-nav]');
+      const before = await toggle.evaluate(el => ({
+        expanded: el.getAttribute('aria-expanded'),
+        visible: getComputedStyle(el).display !== 'none'
+      }));
+      await toggle.click();
+      const after = await toggle.evaluate(el => ({
+        expanded: el.getAttribute('aria-expanded'),
+        label: el.getAttribute('aria-label'),
+        menuOpenClass: document.querySelector('[data-nav]').classList.contains('is-open')
+      }));
+      if (after.expanded !== 'true' || !after.menuOpenClass) {
+        findings.push({ width, type: 'navigation', message: 'Menu did not open', before, after });
+      } else {
+        await page.keyboard.press('Escape');
+        const closed = await toggle.evaluate(el => ({
+          expanded: el.getAttribute('aria-expanded'),
+          menuOpenClass: document.querySelector('[data-nav]').classList.contains('is-open'),
+          focusRestored: document.activeElement === el
+        }));
+        if (closed.expanded !== 'false' || closed.menuOpenClass || !closed.focusRestored) {
+          findings.push({ width, type: 'navigation', message: 'Escape did not close menu and restore focus', closed });
+        }
+      }
+    }
     await page.screenshot({ path: `qa-reports/home-${width}.png`, fullPage: true });
     const axe = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
@@ -38,23 +66,6 @@ try {
       nodes: v.nodes.map(n => ({ target: n.target, failureSummary: n.failureSummary }))
     })));
     findings.push(...errors.map(message => ({ width, type: 'javascript', message })));
-    if (width === 375) {
-      const toggle = page.locator('[data-nav-toggle]');
-      await toggle.click();
-      const menu = page.locator('[data-nav]');
-      const openState = await toggle.getAttribute('aria-expanded');
-      const openClass = await menu.evaluate(el => el.classList.contains('is-open'));
-      if (openState !== 'true' || !openClass) {
-        findings.push({ width, type: 'navigation', message: 'Menu did not open', ariaExpanded: openState, menuOpenClass: openClass });
-      } else {
-        await page.keyboard.press('Escape');
-        const closedState = await toggle.getAttribute('aria-expanded');
-        const closeClass = await menu.evaluate(el => el.classList.contains('is-open'));
-        if (closedState !== 'false' || closeClass) {
-          findings.push({ width, type: 'navigation', message: 'Escape did not close menu', ariaExpanded: closedState, menuOpenClass: closeClass });
-        }
-      }
-    }
     await context.close();
   }
 } finally {
