@@ -41,12 +41,18 @@ try {
     if (width === 375) {
       const toggle = page.locator('[data-nav-toggle]');
       await toggle.click();
-      if (await toggle.getAttribute('aria-expanded') !== 'true') {
-        findings.push({ width, type: 'navigation', message: 'Menu did not open' });
-      }
-      await page.keyboard.press('Escape');
-      if (await toggle.getAttribute('aria-expanded') !== 'false') {
-        findings.push({ width, type: 'navigation', message: 'Escape did not close menu' });
+      const menu = page.locator('[data-nav]');
+      const openState = await toggle.getAttribute('aria-expanded');
+      const openClass = await menu.evaluate(el => el.classList.contains('is-open'));
+      if (openState !== 'true' || !openClass) {
+        findings.push({ width, type: 'navigation', message: 'Menu did not open', ariaExpanded: openState, menuOpenClass: openClass });
+      } else {
+        await page.keyboard.press('Escape');
+        const closedState = await toggle.getAttribute('aria-expanded');
+        const closeClass = await menu.evaluate(el => el.classList.contains('is-open'));
+        if (closedState !== 'false' || closeClass) {
+          findings.push({ width, type: 'navigation', message: 'Escape did not close menu', ariaExpanded: closedState, menuOpenClass: closeClass });
+        }
       }
     }
     await context.close();
