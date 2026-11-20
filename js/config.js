@@ -35,12 +35,14 @@ window.SITE = {
       entrega: "Entrega rápida",
       mp: "",
       incluye: [
-        "Landing de una página con plantilla de tu rubro",
+        "Hasta 6 secciones con módulos prediseñados",
+        "Portal privado para editar campos habilitados",
+        "Vista previa y publicación sujeta a validaciones",
         "Diseño adaptado a celular, tablet y compu",
         "Botón de WhatsApp siempre visible",
         "Hosting y certificado de seguridad (SSL)",
         "Subdominio tunegocio.lanzate.com.ar",
-        "1 cambio por mes"
+        "1 cambio asistido por mes (no acumulable)"
       ]
     },
     {
@@ -53,12 +55,12 @@ window.SITE = {
       destacado: true,
       mp: "",
       incluye: [
-        "Todo lo del plan Express",
+        "Todo lo incluido en Express",
         "Dominio propio .com.ar incluido",
         "Formulario de contacto a tu mail",
         "Mapa, horarios y reseñas de Google",
-        "Alta en Google Maps (perfil de empresa)",
-        "3 cambios por mes"
+        "Asistencia inicial para configurar Google Business Profile, sujeta a verificación de Google",
+        "3 cambios asistidos por mes (no acumulables)"
       ]
     },
     {
@@ -70,13 +72,13 @@ window.SITE = {
       entrega: "Entrega prioritaria",
       mp: "",
       incluye: [
-        "Todo lo del plan Negocio",
+        "Todo lo incluido en Negocio",
         "Hasta 12 secciones a elección",
-        "Reserva de turnos online",
+        "Módulo de solicitud de turnos estándar, sin gestión avanzada",
         "Galería de fotos y videos",
-        "Google Analytics y Píxel de Meta",
-        "Informe mensual de visitas",
-        "10 cambios por mes"
+        "Configuración de analítica con cuentas y consentimientos del cliente",
+        "Resumen de visitas cuando la medición esté configurada",
+        "10 cambios asistidos por mes (no acumulables)"
       ]
     }
   ],
@@ -89,8 +91,13 @@ window.SITE = {
     ["Formulario de contacto", false, true, true],
     ["Mapa y reseñas de Google", false, true, true],
     ["Alta en Google Maps", false, true, true],
-    ["Reserva de turnos", false, false, true],
+    ["Solicitud de turnos estándar", false, false, true],
     ["Analytics y Píxel de Meta", false, false, true],
-    ["Cambios por mes", "1", "3", "10"]
+    ["Portal privado de edición", true, true, true],
+    ["Vista previa de cambios", true, true, true],
+    ["Publicación con validaciones", true, true, true],
+    ["Ediciones propias en campos habilitados", "Sin límite de ediciones", "Sin límite de ediciones", "Sin límite de ediciones"],
+    ["Cambios asistidos por mes", "1", "3", "10"],
+    ["Backend o integraciones a medida", "Se cotiza aparte", "Se cotiza aparte", "Se cotiza aparte"]
   ]
 };
