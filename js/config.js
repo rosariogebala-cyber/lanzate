@@ -37,12 +37,13 @@ window.SITE = {
       incluye: [
         "Hasta 4 secciones con módulos prediseñados",
         "Portal privado para editar campos habilitados",
-        "Vista previa y publicación sujeta a validaciones",
+        "Vista previa y aprobación humana antes de publicar",
         "Diseño adaptado a celular, tablet y compu",
         "Botón de WhatsApp siempre visible",
         "Hosting y certificado de seguridad (SSL)",
         "Subdominio tunegocio.lanzate.com.ar",
-        "1 cambio asistido por mes (no acumulable)"
+        "2 solicitudes de publicación desde el portal por mes",
+        "1 cambio asistido por mes (hasta 15 min)"
       ]
     },
     {
@@ -60,7 +61,8 @@ window.SITE = {
         "Formulario de contacto a tu mail",
         "Mapa, horarios y reseñas de Google",
         "Asistencia inicial para configurar Google Business Profile, sujeta a verificación de Google",
-        "3 cambios asistidos por mes (no acumulables)"
+        "4 solicitudes de publicación desde el portal por mes",
+        "3 cambios asistidos por mes (hasta 45 min)"
       ]
     },
     {
@@ -78,7 +80,8 @@ window.SITE = {
         "Galería de fotos y videos",
         "Analítica ampliada, sujeta a configuración y consentimientos",
         "Soporte prioritario en horario de atención",
-        "5 cambios asistidos por mes (no acumulables)"
+        "8 solicitudes de publicación desde el portal por mes",
+        "5 cambios asistidos por mes (hasta 90 min)"
       ]
     }
   ],
@@ -96,9 +99,10 @@ window.SITE = {
     ["Analítica", "Básica", "Básica", "Ampliada"],
     ["Portal privado de edición", true, true, true],
     ["Vista previa de cambios", true, true, true],
-    ["Publicación con validaciones", true, true, true],
-    ["Ediciones propias en campos habilitados", "Sin límite de ediciones", "Sin límite de ediciones", "Sin límite de ediciones"],
+    ["Publicación con aprobación humana", true, true, true],
+    ["Solicitudes de publicación desde el portal / mes", "2", "4", "8"],
     ["Cambios asistidos por mes", "1", "3", "5"],
+    ["Tiempo de asistencia incluido / mes", "15 min", "45 min", "90 min"],
     ["Backend o integraciones a medida", "Se cotiza aparte", "Se cotiza aparte", "Se cotiza aparte"]
   ]
 };
