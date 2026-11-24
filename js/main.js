@@ -121,7 +121,7 @@
         '<strong>' + price(p.inicial) + '</strong><span>pago único</span></div>' +
         '<p class="plan-monthly">+ <b>' + price(p.mensual) + "</b>/mes · hosting, dominio y soporte</p>" +
         '<a class="btn ' + (p.destacado ? "btn-primary" : "btn-dark") + ' btn-block" href="' + esc(buyUrl(p)) + '"' + (p.mp ? ' target="_blank" rel="noopener"' : "") + '>' +
-        "Pagar con Mercado Pago</a>" +
+        (p.mp ? "Pagar con Mercado Pago" : "Solicitar contratación") + "</a>" +
         '<p class="plan-delivery"><i class="bi bi-rocket-takeoff"></i> ' + esc(p.entrega) + "</p>" +
         '<ul class="plan-list">' + p.incluye.map(function (f) { return '<li><i class="bi bi-check2"></i>' + esc(f) + "</li>"; }).join("") + "</ul>" +
         "</article>";
