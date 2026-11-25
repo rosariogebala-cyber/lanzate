@@ -3,8 +3,8 @@
    Mientras esté vacío, el botón abre un mail con el plan elegido. */
 window.SITE = {
   marca: "Lanzate",
-  email: "hola@example.com",
-  whatsapp: "5491123456789",
+  email: "rosariogebala@gmail.com",
+  whatsapp: "5491166035111",
   /* Medición: pegá acá los IDs cuando los tengas. Mientras estén vacíos no se carga nada.
      ga4: el "ID de medición" de Google Analytics (G-XXXXXXX).
      metaPixel: el número del Píxel de Meta (Administrador de eventos de Meta). */
