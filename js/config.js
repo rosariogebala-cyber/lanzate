@@ -29,7 +29,7 @@ window.SITE = {
       nombre: "Express",
       para: "Para salir online ya, con lo esencial para que te contacten.",
       inicial: 99000,
-      mensual: 19900,
+      mensual: 29900,
       entrega: "Entrega rápida",
 
       incluye: [
@@ -40,7 +40,7 @@ window.SITE = {
         "Menú, WhatsApp flotante, ubicación y footer sin consumir cupo",
         "Estadísticas propias de Lanzate",
         "Hosting y certificado de seguridad (SSL)",
-        "Subdominio tunegocio.lanzate.com.ar",
+        "Subdominio incluido: tunegocio.lanzate.com.ar (sin dominio propio)",
         "Hasta 10 envíos de cambios de contenido por mes desde tu portal",
         "1 cambio asistido por mes"
       ]
@@ -50,7 +50,7 @@ window.SITE = {
       nombre: "Negocio",
       para: "Para que te encuentren en Google y te elijan frente a la competencia.",
       inicial: 179000,
-      mensual: 34900,
+      mensual: 49900,
       entrega: "Entrega rápida",
       destacado: true,
 
@@ -70,7 +70,7 @@ window.SITE = {
       nombre: "Pro",
       para: "Para crecer con más secciones, analítica y soporte prioritario.",
       inicial: 299000,
-      mensual: 54900,
+      mensual: 79900,
       entrega: "Entrega prioritaria",
 
       incluye: [
