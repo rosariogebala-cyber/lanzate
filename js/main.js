@@ -18,15 +18,23 @@
 
   /* Proyectos: las landings marcadas como ejemplo en el panel de Lanzate_modulos (js/ejemplos.js) */
   var examplesBox = document.querySelector("[data-examples]");
-  var examples = window.EJEMPLOS || [];
-  if (examplesBox && examples.length) {
+  function safeExampleUrl(value, image) {
+    try {
+      var u = new URL(value, location.href);
+      return (u.protocol === "https:" || (image && u.origin === location.origin && u.protocol === "http:")) && !u.username && !u.password ? u.href : "";
+    } catch (_) { return ""; }
+  }
+  var hasManifest = Array.isArray(window.EJEMPLOS);
+  var examples = hasManifest ? window.EJEMPLOS.filter(function (ex) { return ex && ex.demo === true && safeExampleUrl(ex.url, false); }).sort(function (a, b) { return (Number.isInteger(a.orden) ? a.orden : 9999) - (Number.isInteger(b.orden) ? b.orden : 9999); }) : [];
+  if (examplesBox && hasManifest) {
     examplesBox.innerHTML = examples.map(function (ex, i) {
-      var img = ex.captura || ex.portada;
-      return '<a class="example' + (i === 0 ? " is-wide" : "") + '" href="' + esc(ex.url) + '" target="_blank" rel="noopener">' +
+      var img = safeExampleUrl(ex.captura || ex.portada || "", true);
+      if (!ex.captura && !ex.portada) img = "";
+      return '<a class="example' + (i === 0 ? " is-wide" : "") + '" href="' + esc(safeExampleUrl(ex.url, false)) + '" target="_blank" rel="noopener">' +
         '<span class="example-shot">' + (img ? '<img src="' + esc(img) + '" alt="Landing de ' + esc(ex.nombre) + '" width="800" height="500" loading="lazy" decoding="async">' : "") + "</span>" +
         '<span class="example-info"><span class="tag">' + esc(ex.rubro || "Landing") + (ex.demo ? " · Demo" : "") + "</span><strong>" + esc(ex.nombre) + "</strong>" +
         '<span class="example-link">Ver en vivo <i class="bi bi-eye"></i></span></span></a>';
-    }).join("");
+    }).join("") || "<p>Próximamente, nuevos ejemplos de Lanzate.</p>";
   }
 
   /* Aviso de promo */
