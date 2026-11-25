@@ -253,11 +253,15 @@
     var rangeEls = heroScroll.querySelectorAll("[data-range]");
     var clamp01 = function (v) { return Math.max(0, Math.min(1, v)); };
     var heroTick = false;
+    var lastHeroProgress = null;
     var updateHero = function () {
       heroTick = false;
       var total = heroScroll.offsetHeight - window.innerHeight;
       var p = calm || total <= 0 ? 1 : clamp01(-heroScroll.getBoundingClientRect().top / total);
-      heroScroll.style.setProperty("--p", p.toFixed(4));
+      var progress = p.toFixed(4);
+      if (progress === lastHeroProgress) return;
+      lastHeroProgress = progress;
+      heroScroll.style.setProperty("--p", progress);
       atEls.forEach(function (n) { n.classList.toggle("is-on", p >= parseFloat(n.getAttribute("data-at"))); });
       rangeEls.forEach(function (n) {
         var r = n.getAttribute("data-range").split(",");
