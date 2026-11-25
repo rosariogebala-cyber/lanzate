@@ -34,8 +34,8 @@ for (const [engine, type] of Object.entries({chromium, firefox, webkit})) {
         assert.ok(href && (href.startsWith('mailto:') || href.startsWith('https://')));
         assert.equal(label,href.startsWith('mailto:')?'Solicitar contratación':'Pagar con Mercado Pago');
        }
-       for(const a of await page.locator('[data-wa-link]').all()) assert.match(await a.getAttribute('href'),/^https:\/\/wa\.me\/\d+\?/);
-       for(const a of await page.locator('[data-mail-link]').all()) assert.ok((await a.getAttribute('href')).startsWith('mailto:') && !(await a.getAttribute('href')).includes('example.com'));
+       for(const a of await page.locator('[data-wa-link]').all()) assert.match(await a.getAttribute('href'),/^https:\/\/wa\.me\/5491166035111\?/);
+       for(const a of await page.locator('[data-mail-link]').all()) assert.ok((await a.getAttribute('href')).startsWith('mailto:rosariogebala@gmail.com'));
        if(width===320){
         const toggle=page.locator('[data-nav-toggle]');
         await toggle.focus();
@@ -48,7 +48,7 @@ for (const [engine, type] of Object.entries({chromium, firefox, webkit})) {
       await page.addScriptTag({content:axe.source});
       const a=await page.evaluate(()=>window.axe.run({runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}}));
       row.violations=a.violations.map(v=>({id:v.id,impact:v.impact,targets:v.nodes.map(n=>n.target)}));
-      row.incomplete=a.incomplete.map(v=>v.id);
+      row.incomplete=a.incomplete.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)}));
       row.overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);
       row.errors=errors.slice(start);
       await page.keyboard.press('Tab');
