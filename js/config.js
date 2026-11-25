@@ -1,6 +1,4 @@
-/* Datos editables del sitio: precios, links de pago y contacto.
-   En "mp" va el link de pago de Mercado Pago de cada plan (Mercado Pago → Cobrar → Link de pago).
-   Mientras esté vacío, el botón abre un mail con el plan elegido. */
+/* Datos editables del sitio: precios y contacto. La contratación se coordina por WhatsApp. */
 window.SITE = {
   marca: "Lanzate",
   email: "rosariogebala@gmail.com",
@@ -33,7 +31,7 @@ window.SITE = {
       inicial: 99000,
       mensual: 19900,
       entrega: "Entrega rápida",
-      mp: "",
+
       incluye: [
         "Hasta 4 secciones de contenido",
         "Portal privado para editar campos habilitados",
@@ -55,7 +53,7 @@ window.SITE = {
       mensual: 34900,
       entrega: "Entrega rápida",
       destacado: true,
-      mp: "",
+
       incluye: [
         "Todo lo incluido en Express",
         "Hasta 7 secciones de contenido",
@@ -74,7 +72,7 @@ window.SITE = {
       inicial: 299000,
       mensual: 54900,
       entrega: "Entrega prioritaria",
-      mp: "",
+
       incluye: [
         "Todo lo incluido en Negocio",
         "Hasta 10 secciones de contenido a elección",
