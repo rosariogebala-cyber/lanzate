@@ -117,7 +117,7 @@
         '<div class="plan-price">' +
         (p.antes ? '<s class="plan-before">' + price(p.antes) + "</s>" : "") +
         '<strong>' + price(p.inicial) + '</strong><span>pago único</span></div>' +
-        '<p class="plan-monthly">+ <b>' + price(p.mensual) + "</b>/mes · hosting, dominio y soporte</p>" +
+        '<p class="plan-monthly">+ <b>' + price(p.mensual) + "</b>/mes · hosting, SSL y soporte</p>" +
         '<a class="btn ' + (p.destacado ? "btn-primary" : "btn-dark") + ' btn-block" href="' + esc(buyUrl(p)) + '"' + ' target="_blank" rel="noopener"' + '>' +
         '<i class="bi bi-whatsapp" aria-hidden="true"></i> Contratar por WhatsApp' + "</a>" +
         '<p class="plan-delivery"><i class="bi bi-rocket-takeoff"></i> ' + esc(p.entrega) + "</p>" +
