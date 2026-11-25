@@ -11,9 +11,7 @@
     return "https://wa.me/" + site.whatsapp + "?text=" + encodeURIComponent(text);
   }
   function buyUrl(plan) {
-    if (plan.mp) return plan.mp;
-    return "mailto:" + site.email + "?subject=" + encodeURIComponent("Quiero el plan " + plan.nombre) +
-      "&body=" + encodeURIComponent("Hola, quiero contratar el plan " + plan.nombre + " (" + price(plan.inicial) + " + " + price(plan.mensual) + "/mes).\n\nNegocio:\nRubro:\nWhatsApp:");
+    return waUrl("Hola, quiero contratar el plan " + plan.nombre + " de Lanzate (" + price(plan.inicial) + " de implementación + " + price(plan.mensual) + "/mes). ¿Me enviás los pasos para contratar y coordinar el pago?");
   }
 
   /* Proyectos: las landings marcadas como ejemplo en el panel de Lanzate_modulos (js/ejemplos.js) */
@@ -120,8 +118,8 @@
         (p.antes ? '<s class="plan-before">' + price(p.antes) + "</s>" : "") +
         '<strong>' + price(p.inicial) + '</strong><span>pago único</span></div>' +
         '<p class="plan-monthly">+ <b>' + price(p.mensual) + "</b>/mes · hosting, dominio y soporte</p>" +
-        '<a class="btn ' + (p.destacado ? "btn-primary" : "btn-dark") + ' btn-block" href="' + esc(buyUrl(p)) + '"' + (p.mp ? ' target="_blank" rel="noopener"' : "") + '>' +
-        (p.mp ? "Pagar con Mercado Pago" : "Solicitar contratación") + "</a>" +
+        '<a class="btn ' + (p.destacado ? "btn-primary" : "btn-dark") + ' btn-block" href="' + esc(buyUrl(p)) + '"' + ' target="_blank" rel="noopener"' + '>' +
+        '<i class="bi bi-whatsapp" aria-hidden="true"></i> Contratar por WhatsApp' + "</a>" +
         '<p class="plan-delivery"><i class="bi bi-rocket-takeoff"></i> ' + esc(p.entrega) + "</p>" +
         '<ul class="plan-list">' + p.incluye.map(function (f) { return '<li><i class="bi bi-check2"></i>' + esc(f) + "</li>"; }).join("") + "</ul>" +
         "</article>";
